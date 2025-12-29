@@ -1,0 +1,22 @@
+-muwx
+-i .pio\build\N76E003\firmware.hex
+-M
+-I 0x0100
+-X 0x0300
+-C 0x4800
+-b HOME = 0x0000
+-b XSEG = 0x0001
+-b PSEG = 0x0001
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k .pio\build\N76E003
+-k C:\Users\bor1a\.platformio\packages\toolchain-sdcc\bin\..\lib\small
+-l .pio\build\N76E003\libd91\libisp_uart.lib
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+.pio\build\N76E003\src\main.rel
+
+-e

@@ -1,0 +1,22 @@
+-muwx
+-i .pio\build\MS51FB9AE\firmware.hex
+-M
+-I 0x0100
+-X 0x0400
+-C 0x4000
+-b HOME = 0x0000
+-b XSEG = 0x0001
+-b PSEG = 0x0001
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k .pio\build\MS51FB9AE
+-k C:\Users\bor1a\.platformio\packages\toolchain-sdcc\bin\..\lib\small
+-l .pio\build\MS51FB9AE\libd91\libisp_uart.lib
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+.pio\build\MS51FB9AE\src\main.rel
+
+-e

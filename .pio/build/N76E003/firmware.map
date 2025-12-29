@@ -1,0 +1,547 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CABS                                00000000    00000000 =           0. bytes (ABS,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000000  l_BIT_BANK                      
+C:   00000000  l_CABS                          
+C:   00000000  l_CONST                         
+C:   00000000  l_GSINIT1                       
+C:   00000000  l_GSINIT5                       
+C:   00000000  l_IABS                          
+C:   00000000  l_ISEG                          
+C:   00000000  l_PSEG                          
+C:   00000000  l_REG_BANK_1                    
+C:   00000000  l_REG_BANK_2                    
+C:   00000000  l_REG_BANK_3                    
+C:   00000000  l_RSEG                          
+C:   00000000  l_RSEG0                         
+C:   00000000  l_RSEG1                         
+C:   00000000  l_XABS                          
+C:   00000000  l_XINIT                         
+C:   00000000  l_XISEG                         
+C:   00000000  l_XSEG                          
+C:   00000000  l__CODE                         
+C:   00000000  s_BSEG                          
+C:   00000000  s_CABS                          
+C:   00000000  s_DSEG                          
+C:   00000000  s_HOME                          
+C:   00000000  s_IABS                          
+C:   00000000  s_ISEG                          
+C:   00000000  s_REG_BANK_0                    
+C:   00000000  s_RSEG                          
+C:   00000000  s_RSEG0                         
+C:   00000000  s_RSEG1                         
+C:   00000000  s_XABS                          
+C:   00000001  l_BSEG_BYTES                    
+C:   00000001  s_PSEG                          
+C:   00000001  s_XISEG                         
+C:   00000001  s_XSEG                          
+C:   00000002  l_OSEG                          
+C:   00000003  l_BSEG                          
+C:   00000003  l_GSFINAL                       
+C:   00000003  l_GSINIT0                       
+C:   00000008  l_REG_BANK_0                    
+C:   00000008  s_OSEG                          
+C:   00000008  s_REG_BANK_1                    
+C:   0000000A  l_GSINIT                        
+C:   0000000A  l_GSINIT2                       
+C:   00000010  s_REG_BANK_2                    
+C:   00000018  s_BIT_BANK                      
+C:   00000018  s_REG_BANK_3                    
+C:   00000020  s_BSEG_BYTES                    
+C:   00000020  s__CODE                         
+C:   00000022  l_GSINIT3                       
+C:   0000002A  l_GSINIT4                       
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CABS                                00000000    00000000 =           0. bytes (ABS,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000006A  l_DSEG                          
+C:   00000070  s_SSEG                          
+C:   00000081  l_HOME                          
+C:   00000081  s_GSINIT0                       
+C:   00000084  s_GSINIT1                       
+C:   00000084  s_GSINIT2                       
+C:   0000008E  s_GSINIT3                       
+C:   00000090  l_SSEG                          
+C:   000000B0  s_GSINIT4                       
+C:   000000DA  s_GSINIT                        
+C:   000000DA  s_GSINIT5                       
+C:   000000E4  s_GSFINAL                       
+C:   000000E7  s_CSEG                          
+C:   00000100  l_IRAM                          
+C:   0000030D  l_CSEG                          
+C:   000003F4  s_CONST                         
+C:   000003F4  s_XINIT                         
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           _startup
+     00000080  _MOSI                              isp_uart
+     00000080  _P0                                isp_uart
+     00000080  _P00                               isp_uart
+     00000081  _MISO                              isp_uart
+     00000081  _P01                               isp_uart
+     00000081  _SP                                isp_uart
+     00000082  _DPL                               isp_uart
+     00000082  _P02                               isp_uart
+     00000082  _RXD_1                             isp_uart
+     00000083  _DPH                               isp_uart
+     00000083  _P03                               isp_uart
+     00000084  _P04                               isp_uart
+     00000084  _RCTRIM0                           isp_uart
+     00000084  _STADC                             isp_uart
+     00000085  _P05                               isp_uart
+     00000085  _RCTRIM1                           isp_uart
+     00000086  _P06                               isp_uart
+     00000086  _RWK                               isp_uart
+     00000086  _TXD                               isp_uart
+     00000087  _P07                               isp_uart
+     00000087  _PCON                              isp_uart
+     00000087  _RXD                               isp_uart
+     00000088  _IT0                               isp_uart
+     00000088  _TCON                              isp_uart
+     00000089  _IE0                               isp_uart
+     00000089  _TMOD                              isp_uart
+     0000008A  _IT1                               isp_uart
+     0000008A  _TL0                               isp_uart
+     0000008B  _IE1                               isp_uart
+     0000008B  _TL1                               isp_uart
+     0000008C  _TH0                               isp_uart
+     0000008C  _TR0                               isp_uart
+     0000008D  _TF0                               isp_uart
+     0000008D  _TH1                               isp_uart
+     0000008E  _CKCON                             isp_uart
+     0000008E  _TR1                               isp_uart
+     0000008F  _TF1                               isp_uart
+     0000008F  _WKCON                             isp_uart
+     00000090  _P1                                isp_uart
+     00000090  _P10                               isp_uart
+     00000091  _P11                               isp_uart
+     00000091  _SFRS                              isp_uart
+     00000092  _CAPCON0                           isp_uart
+     00000092  _P12                               isp_uart
+     00000093  _CAPCON1                           isp_uart
+     00000093  _P13                               isp_uart
+     00000093  _SCL                               isp_uart
+     00000094  _CAPCON2                           isp_uart
+     00000094  _P14                               isp_uart
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000094  _SDA                               isp_uart
+     00000095  _CKDIV                             isp_uart
+     00000095  _P15                               isp_uart
+     00000096  _CKSWT                             isp_uart
+     00000096  _P16                               isp_uart
+     00000096  _TXD_1                             isp_uart
+     00000097  _CKEN                              isp_uart
+     00000097  _P17                               isp_uart
+     00000098  _RI                                isp_uart
+     00000098  _SCON                              isp_uart
+     00000099  _SBUF                              isp_uart
+     00000099  _TI                                isp_uart
+     0000009A  _RB8                               isp_uart
+     0000009A  _SBUF_1                            isp_uart
+     0000009B  _EIE                               isp_uart
+     0000009B  _TB8                               isp_uart
+     0000009C  _EIE1                              isp_uart
+     0000009C  _REN                               isp_uart
+     0000009D  _SM2                               isp_uart
+     0000009E  _SM1                               isp_uart
+     0000009F  _CHPCON                            isp_uart
+     0000009F  _FE                                isp_uart
+     0000009F  _SM0                               isp_uart
+     000000A0  _P2                                isp_uart
+     000000A0  _P20                               isp_uart
+     000000A0  __XPAGE                            
+     000000A2  _AUXR1                             isp_uart
+     000000A3  _BODCON0                           isp_uart
+     000000A4  _IAPTRG                            isp_uart
+     000000A5  _IAPUEN                            isp_uart
+     000000A6  _IAPAL                             isp_uart
+     000000A7  _IAPAH                             isp_uart
+     000000A8  _EX0                               isp_uart
+     000000A8  _IE                                isp_uart
+     000000A9  _ET0                               isp_uart
+     000000A9  _SADDR                             isp_uart
+     000000AA  _EX1                               isp_uart
+     000000AA  _WDCON                             isp_uart
+     000000AB  _BODCON1                           isp_uart
+     000000AB  _ET1                               isp_uart
+     000000AC  _ES                                isp_uart
+     000000AC  _P3M1                              isp_uart
+     000000AC  _P3S                               isp_uart
+     000000AD  _EBOD                              isp_uart
+     000000AD  _P3M2                              isp_uart
+     000000AD  _P3SR                              isp_uart
+     000000AE  _EADC                              isp_uart
+     000000AE  _IAPFD                             isp_uart
+     000000AF  _EA                                isp_uart
+     000000AF  _IAPCN                             isp_uart
+     000000B0  _P3                                isp_uart
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000B0  _P30                               isp_uart
+     000000B1  _P0M1                              isp_uart
+     000000B1  _P0S                               isp_uart
+     000000B2  _P0M2                              isp_uart
+     000000B2  _P0SR                              isp_uart
+     000000B3  _P1M1                              isp_uart
+     000000B3  _P1S                               isp_uart
+     000000B4  _P1M2                              isp_uart
+     000000B4  _P1SR                              isp_uart
+     000000B5  _P2S                               isp_uart
+     000000B7  _IPH                               isp_uart
+     000000B7  _PWMINTC                           isp_uart
+     000000B8  _IP                                isp_uart
+     000000B8  _PX0                               isp_uart
+     000000B9  _PT0                               isp_uart
+     000000B9  _SADEN                             isp_uart
+     000000BA  _PX1                               isp_uart
+     000000BA  _SADEN_1                           isp_uart
+     000000BB  _PT1                               isp_uart
+     000000BB  _SADDR_1                           isp_uart
+     000000BC  _I2DAT                             isp_uart
+     000000BC  _PS                                isp_uart
+     000000BD  _I2STAT                            isp_uart
+     000000BD  _PBOD                              isp_uart
+     000000BE  _I2CLK                             isp_uart
+     000000BE  _PADC                              isp_uart
+     000000BF  _I2TOC                             isp_uart
+     000000C0  _I2CON                             isp_uart
+     000000C0  _I2CPX                             isp_uart
+     000000C1  _I2ADDR                            isp_uart
+     000000C2  _AA                                isp_uart
+     000000C2  _ADCRL                             isp_uart
+     000000C3  _ADCRH                             isp_uart
+     000000C3  _SI                                isp_uart
+     000000C4  _PWM4H                             isp_uart
+     000000C4  _STO                               isp_uart
+     000000C4  _T3CON                             isp_uart
+     000000C5  _PWM5H                             isp_uart
+     000000C5  _RL3                               isp_uart
+     000000C5  _STA                               isp_uart
+     000000C6  _I2CEN                             isp_uart
+     000000C6  _PIOCON1                           isp_uart
+     000000C6  _RH3                               isp_uart
+     000000C7  _TA                                isp_uart
+     000000C8  _CM_RL2                            isp_uart
+     000000C8  _T2CON                             isp_uart
+     000000C9  _T2MOD                             isp_uart
+     000000CA  _RCMP2L                            isp_uart
+     000000CA  _TR2                               isp_uart
+     000000CB  _RCMP2H                            isp_uart
+     000000CC  _PWM4L                             isp_uart
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000CC  _TL2                               isp_uart
+     000000CD  _PWM5L                             isp_uart
+     000000CD  _TH2                               isp_uart
+     000000CE  _ADCMPL                            isp_uart
+     000000CF  _ADCMPH                            isp_uart
+     000000CF  _TF2                               isp_uart
+     000000D0  _P                                 isp_uart
+     000000D0  _PSW                               isp_uart
+     000000D1  _PWMPH                             isp_uart
+     000000D2  _OV                                isp_uart
+     000000D2  _PWM0H                             isp_uart
+     000000D3  _PWM1H                             isp_uart
+     000000D3  _RS0                               isp_uart
+     000000D4  _PWM2H                             isp_uart
+     000000D4  _RS1                               isp_uart
+     000000D5  _F0                                isp_uart
+     000000D5  _PWM3H                             isp_uart
+     000000D6  _AC                                isp_uart
+     000000D6  _PNP                               isp_uart
+     000000D7  _CY                                isp_uart
+     000000D7  _FBD                               isp_uart
+     000000D8  _PWMCON0                           isp_uart
+     000000D9  _PWMPL                             isp_uart
+     000000DA  _PWM0L                             isp_uart
+     000000DB  _PWM1L                             isp_uart
+     000000DC  _CLRPWM                            isp_uart
+     000000DC  _PWM2L                             isp_uart
+     000000DD  _PWM3L                             isp_uart
+     000000DD  _PWMF                              isp_uart
+     000000DE  _LOAD                              isp_uart
+     000000DE  _PIOCON0                           isp_uart
+     000000DF  _PWMCON1                           isp_uart
+     000000DF  _PWMRUN                            isp_uart
+     000000E0  _ACC                               isp_uart
+     000000E1  _ADCCON1                           isp_uart
+     000000E2  _ADCCON2                           isp_uart
+     000000E3  _ADCDLY                            isp_uart
+     000000E4  _C0L                               isp_uart
+     000000E5  _C0H                               isp_uart
+     000000E6  _C1L                               isp_uart
+     000000E7  _C1H                               isp_uart
+     000000E8  _ADCCON0                           isp_uart
+     000000E8  _ADCHS0                            isp_uart
+     000000E9  _ADCHS1                            isp_uart
+     000000E9  _PICON                             isp_uart
+     000000EA  _ADCHS2                            isp_uart
+     000000EA  _PINEN                             isp_uart
+     000000EB  _ADCHS3                            isp_uart
+     000000EB  _PIPEN                             isp_uart
+     000000EC  _ETGSEL0                           isp_uart
+     000000EC  _PIF                               isp_uart
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000ED  _C2L                               isp_uart
+     000000ED  _ETGSEL1                           isp_uart
+     000000EE  _ADCS                              isp_uart
+     000000EE  _C2H                               isp_uart
+     000000EF  _ADCF                              isp_uart
+     000000EF  _EIP                               isp_uart
+     000000F0  _B                                 isp_uart
+     000000F1  _CAPCON3                           isp_uart
+     000000F2  _CAPCON4                           isp_uart
+     000000F3  _SPCR                              isp_uart
+     000000F3  _SPCR2                             isp_uart
+     000000F4  _SPSR                              isp_uart
+     000000F5  _SPDR                              isp_uart
+     000000F6  _AINDIDS                           isp_uart
+     000000F7  _EIPH                              isp_uart
+     000000F8  _RI_1                              isp_uart
+     000000F8  _SCON_1                            isp_uart
+     000000F9  _PDTEN                             isp_uart
+     000000F9  _TI_1                              isp_uart
+     000000FA  _PDTCNT                            isp_uart
+     000000FA  _RB8_1                             isp_uart
+     000000FB  _PMEN                              isp_uart
+     000000FB  _TB8_1                             isp_uart
+     000000FC  _PMD                               isp_uart
+     000000FC  _REN_1                             isp_uart
+     000000FD  _SM2_1                             isp_uart
+     000000FE  _EIP1                              isp_uart
+     000000FE  _SM1_1                             isp_uart
+     000000FF  _EIPH1                             isp_uart
+     000000FF  _FE_1                              isp_uart
+     000000FF  _SM0_1                             isp_uart
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+BSEG_BYTES                          00000020    00000001 =           1. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+REG_BANK_0                          00000000    00000008 =           8. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+DSEG                                00000000    0000006A =         106. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000021  _uartBuf                           isp_uart
+     00000061  _indexRx                           isp_uart
+     00000062  _timerUart                         isp_uart
+     00000063  _timerIsp                          isp_uart
+     00000065  _flashAddress                      isp_uart
+     00000067  _programSize                       isp_uart
+     00000069  _temp4bytes                        isp_uart
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+OSEG                                00000008    00000002 =           2. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+SSEG                                00000070    00000090 =         144. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000070  __start__stack                     main
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 13.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+HOME                                00000000    00000081 =         129. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000007E  __sdcc_program_startup             main
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT0                             00000081    00000003 =           3. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000081  __sdcc_gsinit_startup              
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT2                             00000084    0000000A =          10. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 16.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT3                             0000008E    00000022 =          34. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000008E  __mcs51_genXINIT                   
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT4                             000000B0    0000002A =          42. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000000B0  __mcs51_genRAMCLEAR                
+C:   000000B6  __mcs51_genXRAMCLEAR               
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT                              000000DA    0000000A =          10. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSFINAL                             000000E4    00000003 =           3. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                000000E7    0000030D =         781. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000000E7  _Timer0_ISR                        main
+C:   00000123  _UART1_ISR                         main
+C:   00000158  _main                              main
+C:   00000273  _calcChecksum                      isp_uart
+C:   000002B0  _sendPack                          isp_uart
+C:   000002C6  _ispRead4Bytes                     isp_uart
+C:   00000309  _readConfig                        isp_uart
+C:   0000032D  _eraseAprom                        isp_uart
+C:   00000366  _writeAprom                        isp_uart
+C:   000003F0  __sdcc_external_startup            _startup
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
+
+Files Linked                              [ module(s) ]
+
+.pio\build\N76E003\src\main.rel           [  ]
+
+
+Libraries Linked                          [ object file ]
+
+.pio\build\N76E003\libd91\libisp_uart.lib
+                                          [ isp_uart.rel ]
+C:\Users\bor1a\.platformio\packages\toolchain-sdcc\bin\..\lib\small/mcs51.lib
+                                          [ crtclear.rel ]
+C:\Users\bor1a\.platformio\packages\toolchain-sdcc\bin\..\lib\small/mcs51.lib
+                                          [ crtxinit.rel ]
+C:\Users\bor1a\.platformio\packages\toolchain-sdcc\bin\..\lib\small/mcs51.lib
+                                          [ crtxclear.rel ]
+C:\Users\bor1a\.platformio\packages\toolchain-sdcc\bin\..\lib\small/mcs51.lib
+                                          [ crtpagesfr.rel ]
+C:\Users\bor1a\.platformio\packages\toolchain-sdcc\bin\..\lib\small/mcs51.lib
+                                          [ crtstart.rel ]
+C:\Users\bor1a\.platformio\packages\toolchain-sdcc\bin\..\lib\small/libsdcc.lib
+                                          [ _startup.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
+
+User Base Address Definitions
+
+HOME = 0x0000
+XSEG = 0x0001
+PSEG = 0x0001
+ISEG = 0x0000
+BSEG = 0x0000
+
+
