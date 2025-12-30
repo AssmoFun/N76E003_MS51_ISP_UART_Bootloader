@@ -65,7 +65,7 @@ void main (void)
     clr_POF;
   } */
 
-  // The method from the OpenNuvoton set 16->16.6 MHz after first call, and restore 16 MHz after any next call
+  // The method from the OpenNuvoton set 16->16.6 MHz
   //IAPCN = READ_UID; // Isn't it necessary for the first read after power-up ?
   IAPAH = 0x00;
 
