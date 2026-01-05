@@ -21,6 +21,9 @@ extern "C"{
 #if LDROM_SIZE == 2
 #define RESTORE_16_MHZ_CLOCK  1     // 1 - restore the clock to default 16 MHz, or 0 - leave the overclock at 16.6/24 MHz
 #endif
+#ifdef N76E003
+#define CLK_TRIM_STEPS      2       // 1 step = 40 kHz. May require modification for a specific MCU: set 1 for 16,560 MHz or 2 for 16,520 MHz CPU Frequency
+#endif
 /* Immutable defines ---------------------------------------------------------*/
 #if (USED_UART != 0) && (USED_UART != 1)
 #error "USED_UART must be 0 or 1"
