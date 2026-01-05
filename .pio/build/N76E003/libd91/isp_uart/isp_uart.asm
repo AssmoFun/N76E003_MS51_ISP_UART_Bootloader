@@ -533,7 +533,6 @@ _calcChecksum_checksum_65536_65:
 	.ds 2
 	.area	OSEG    (OVR,DATA)
 	.area	OSEG    (OVR,DATA)
-	.area	OSEG    (OVR,DATA)
 ;--------------------------------------------------------
 ; indirectly addressable internal ram data
 ;--------------------------------------------------------
@@ -739,7 +738,7 @@ _ispRead4Bytes:
 00111$:
 	cjne	r5,#0x04,00144$
 00144$:
-	jnc	00113$
+	jnc	00109$
 ;	lib\isp_uart\isp_uart.c:112: IAPAL = i;
 	mov	_IAPAL,r5
 ;	lib\isp_uart\isp_uart.c:113: if (readType == READ_CONFIG_TYPE && i == 3)
@@ -764,28 +763,27 @@ _ispRead4Bytes:
 	cjne	r5,#0x01,00112$
 ;	lib\isp_uart\isp_uart.c:119: if (temp4bytes.DID_high != 0x67)
 	mov	a,#0x67
-	cjne	a,(_temp4bytes + 0x0001),00113$
+	cjne	a,(_temp4bytes + 0x0001),00109$
 ;	lib\isp_uart\isp_uart.c:120: break; 
 00112$:
 ;	lib\isp_uart\isp_uart.c:111: for (uint8_t i = 0; i < 4; i++){
 	inc	r5
 	sjmp	00111$
-00113$:
-;	lib\isp_uart\isp_uart.c:124: }
-	ret
+00109$:
+;	lib\isp_uart\isp_uart.c:124: calcChecksum();
+;	lib\isp_uart\isp_uart.c:125: }
+	ljmp	_calcChecksum
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'readConfig'
 ;------------------------------------------------------------
-;	lib\isp_uart\isp_uart.c:126: void readConfig(void)
+;	lib\isp_uart\isp_uart.c:127: void readConfig(void)
 ;	-----------------------------------------
 ;	 function readConfig
 ;	-----------------------------------------
 _readConfig:
-;	lib\isp_uart\isp_uart.c:128: ispRead4Bytes(READ_CONFIG_TYPE);
+;	lib\isp_uart\isp_uart.c:129: ispRead4Bytes(READ_CONFIG_TYPE);
 	mov	dpl,#0xc0
 	lcall	_ispRead4Bytes
-;	lib\isp_uart\isp_uart.c:129: calcChecksum();
-	lcall	_calcChecksum
 ;	lib\isp_uart\isp_uart.c:130: uartBuf[8]  = temp4bytes.CONF0;
 	mov	(_uartBuf + 0x0008),_temp4bytes
 ;	lib\isp_uart\isp_uart.c:131: uartBuf[9]  = temp4bytes.CONF1;
@@ -798,7 +796,7 @@ _readConfig:
 	mov	(_uartBuf + 0x000c),(_temp4bytes + 0x0003)
 ;	lib\isp_uart\isp_uart.c:135: uartBuf[13] = 0xFF;
 	mov	(_uartBuf + 0x000d),#0xff
-;	lib\isp_uart\isp_uart.c:136: uartBuf[14] = 0xFF;       
+;	lib\isp_uart\isp_uart.c:136: uartBuf[14] = 0xFF;
 	mov	(_uartBuf + 0x000e),#0xff
 ;	lib\isp_uart\isp_uart.c:137: uartBuf[15] = 0xFF;
 	mov	(_uartBuf + 0x000f),#0xff

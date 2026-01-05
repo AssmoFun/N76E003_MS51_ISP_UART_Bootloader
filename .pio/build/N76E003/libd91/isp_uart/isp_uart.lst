@@ -533,441 +533,439 @@
       000000                        533 	.ds 2
                                     534 	.area	OSEG    (OVR,DATA)
                                     535 	.area	OSEG    (OVR,DATA)
-                                    536 	.area	OSEG    (OVR,DATA)
-                                    537 ;--------------------------------------------------------
-                                    538 ; indirectly addressable internal ram data
-                                    539 ;--------------------------------------------------------
-                                    540 	.area ISEG    (DATA)
-                                    541 ;--------------------------------------------------------
-                                    542 ; absolute internal ram data
-                                    543 ;--------------------------------------------------------
+                                    536 ;--------------------------------------------------------
+                                    537 ; indirectly addressable internal ram data
+                                    538 ;--------------------------------------------------------
+                                    539 	.area ISEG    (DATA)
+                                    540 ;--------------------------------------------------------
+                                    541 ; absolute internal ram data
+                                    542 ;--------------------------------------------------------
+                                    543 	.area IABS    (ABS,DATA)
                                     544 	.area IABS    (ABS,DATA)
-                                    545 	.area IABS    (ABS,DATA)
-                                    546 ;--------------------------------------------------------
-                                    547 ; bit data
-                                    548 ;--------------------------------------------------------
-                                    549 	.area BSEG    (BIT)
-      000000                        550 _timerUartOver::
-      000000                        551 	.ds 1
-      000001                        552 _timerIspOver::
-      000001                        553 	.ds 1
-      000002                        554 _isApromUpdate::
-      000002                        555 	.ds 1
-                                    556 ;--------------------------------------------------------
-                                    557 ; paged external ram data
-                                    558 ;--------------------------------------------------------
-                                    559 	.area PSEG    (PAG,XDATA)
-                                    560 ;--------------------------------------------------------
-                                    561 ; external ram data
-                                    562 ;--------------------------------------------------------
-                                    563 	.area XSEG    (XDATA)
-                                    564 ;--------------------------------------------------------
-                                    565 ; absolute external ram data
-                                    566 ;--------------------------------------------------------
-                                    567 	.area XABS    (ABS,XDATA)
-                                    568 ;--------------------------------------------------------
-                                    569 ; external initialized ram data
-                                    570 ;--------------------------------------------------------
-                                    571 	.area XISEG   (XDATA)
-                                    572 	.area HOME    (CODE)
-                                    573 	.area GSINIT0 (CODE)
-                                    574 	.area GSINIT1 (CODE)
-                                    575 	.area GSINIT2 (CODE)
-                                    576 	.area GSINIT3 (CODE)
-                                    577 	.area GSINIT4 (CODE)
-                                    578 	.area GSINIT5 (CODE)
-                                    579 	.area GSINIT  (CODE)
-                                    580 	.area GSFINAL (CODE)
-                                    581 	.area CSEG    (CODE)
-                                    582 ;--------------------------------------------------------
-                                    583 ; global & static initialisations
-                                    584 ;--------------------------------------------------------
-                                    585 	.area HOME    (CODE)
-                                    586 	.area GSINIT  (CODE)
-                                    587 	.area GSFINAL (CODE)
-                                    588 	.area GSINIT  (CODE)
-                                    589 ;	lib\isp_uart\isp_uart.c:7: volatile  uint16_t  timerIsp = ISP_WAIT_TIMEOUT;
-      000000 75*42 5E         [24]  590 	mov	_timerIsp,#0x5e
-      000003 75*43 01         [24]  591 	mov	(_timerIsp + 1),#0x01
-                                    592 ;	lib\isp_uart\isp_uart.c:13: volatile  BIT timerIspOver = FALSE;
-                                    593 ;	assignBit
-      000006 C2*01            [12]  594 	clr	_timerIspOver
-                                    595 ;	lib\isp_uart\isp_uart.c:14: BIT isApromUpdate = FALSE;
-                                    596 ;	assignBit
-      000008 C2*02            [12]  597 	clr	_isApromUpdate
-                                    598 ;--------------------------------------------------------
-                                    599 ; Home
-                                    600 ;--------------------------------------------------------
+                                    545 ;--------------------------------------------------------
+                                    546 ; bit data
+                                    547 ;--------------------------------------------------------
+                                    548 	.area BSEG    (BIT)
+      000000                        549 _timerUartOver::
+      000000                        550 	.ds 1
+      000001                        551 _timerIspOver::
+      000001                        552 	.ds 1
+      000002                        553 _isApromUpdate::
+      000002                        554 	.ds 1
+                                    555 ;--------------------------------------------------------
+                                    556 ; paged external ram data
+                                    557 ;--------------------------------------------------------
+                                    558 	.area PSEG    (PAG,XDATA)
+                                    559 ;--------------------------------------------------------
+                                    560 ; external ram data
+                                    561 ;--------------------------------------------------------
+                                    562 	.area XSEG    (XDATA)
+                                    563 ;--------------------------------------------------------
+                                    564 ; absolute external ram data
+                                    565 ;--------------------------------------------------------
+                                    566 	.area XABS    (ABS,XDATA)
+                                    567 ;--------------------------------------------------------
+                                    568 ; external initialized ram data
+                                    569 ;--------------------------------------------------------
+                                    570 	.area XISEG   (XDATA)
+                                    571 	.area HOME    (CODE)
+                                    572 	.area GSINIT0 (CODE)
+                                    573 	.area GSINIT1 (CODE)
+                                    574 	.area GSINIT2 (CODE)
+                                    575 	.area GSINIT3 (CODE)
+                                    576 	.area GSINIT4 (CODE)
+                                    577 	.area GSINIT5 (CODE)
+                                    578 	.area GSINIT  (CODE)
+                                    579 	.area GSFINAL (CODE)
+                                    580 	.area CSEG    (CODE)
+                                    581 ;--------------------------------------------------------
+                                    582 ; global & static initialisations
+                                    583 ;--------------------------------------------------------
+                                    584 	.area HOME    (CODE)
+                                    585 	.area GSINIT  (CODE)
+                                    586 	.area GSFINAL (CODE)
+                                    587 	.area GSINIT  (CODE)
+                                    588 ;	lib\isp_uart\isp_uart.c:7: volatile  uint16_t  timerIsp = ISP_WAIT_TIMEOUT;
+      000000 75*42 5E         [24]  589 	mov	_timerIsp,#0x5e
+      000003 75*43 01         [24]  590 	mov	(_timerIsp + 1),#0x01
+                                    591 ;	lib\isp_uart\isp_uart.c:13: volatile  BIT timerIspOver = FALSE;
+                                    592 ;	assignBit
+      000006 C2*01            [12]  593 	clr	_timerIspOver
+                                    594 ;	lib\isp_uart\isp_uart.c:14: BIT isApromUpdate = FALSE;
+                                    595 ;	assignBit
+      000008 C2*02            [12]  596 	clr	_isApromUpdate
+                                    597 ;--------------------------------------------------------
+                                    598 ; Home
+                                    599 ;--------------------------------------------------------
+                                    600 	.area HOME    (CODE)
                                     601 	.area HOME    (CODE)
-                                    602 	.area HOME    (CODE)
-                                    603 ;--------------------------------------------------------
-                                    604 ; code
-                                    605 ;--------------------------------------------------------
-                                    606 	.area CSEG    (CODE)
-                                    607 ;------------------------------------------------------------
-                                    608 ;Allocation info for local variables in function 'calcChecksum'
-                                    609 ;------------------------------------------------------------
-                                    610 ;checksum                  Allocated with name '_calcChecksum_checksum_65536_65'
-                                    611 ;i                         Allocated to registers r5 
-                                    612 ;------------------------------------------------------------
-                                    613 ;	lib\isp_uart\isp_uart.c:86: void calcChecksum(void)
-                                    614 ;	-----------------------------------------
-                                    615 ;	 function calcChecksum
-                                    616 ;	-----------------------------------------
-      000000                        617 _calcChecksum:
-                           000007   618 	ar7 = 0x07
-                           000006   619 	ar6 = 0x06
-                           000005   620 	ar5 = 0x05
-                           000004   621 	ar4 = 0x04
-                           000003   622 	ar3 = 0x03
-                           000002   623 	ar2 = 0x02
-                           000001   624 	ar1 = 0x01
-                           000000   625 	ar0 = 0x00
-                                    626 ;	lib\isp_uart\isp_uart.c:88: uint16_t checksum = 0;
-      000000 E4               [12]  627 	clr	a
-      000001 F5*00            [12]  628 	mov	_calcChecksum_checksum_65536_65,a
-      000003 F5*01            [12]  629 	mov	(_calcChecksum_checksum_65536_65 + 1),a
-                                    630 ;	lib\isp_uart\isp_uart.c:89: for (uint8_t i = 0; i < PACK_SIZE; i++)
-      000005 7D 00            [12]  631 	mov	r5,#0x00
-      000007                        632 00105$:
-      000007 BD 40 00         [24]  633 	cjne	r5,#0x40,00122$
-      00000A                        634 00122$:
-      00000A 50 19            [24]  635 	jnc	00101$
-                                    636 ;	lib\isp_uart\isp_uart.c:90: checksum += uartBuf[i];    
-      00000C ED               [12]  637 	mov	a,r5
-      00000D 24r00            [12]  638 	add	a,#_uartBuf
-      00000F F9               [12]  639 	mov	r1,a
-      000010 87 04            [24]  640 	mov	ar4,@r1
-      000012 7B 00            [12]  641 	mov	r3,#0x00
-      000014 AA*00            [24]  642 	mov	r2,_calcChecksum_checksum_65536_65
-      000016 AF*01            [24]  643 	mov	r7,(_calcChecksum_checksum_65536_65 + 1)
-      000018 EC               [12]  644 	mov	a,r4
-      000019 2A               [12]  645 	add	a,r2
-      00001A FA               [12]  646 	mov	r2,a
-      00001B EB               [12]  647 	mov	a,r3
-      00001C 3F               [12]  648 	addc	a,r7
-      00001D FF               [12]  649 	mov	r7,a
-      00001E 8A*00            [24]  650 	mov	_calcChecksum_checksum_65536_65,r2
-      000020 8F*01            [24]  651 	mov	(_calcChecksum_checksum_65536_65 + 1),r7
-                                    652 ;	lib\isp_uart\isp_uart.c:89: for (uint8_t i = 0; i < PACK_SIZE; i++)
-      000022 0D               [12]  653 	inc	r5
-      000023 80 E2            [24]  654 	sjmp	00105$
-      000025                        655 00101$:
-                                    656 ;	lib\isp_uart\isp_uart.c:91: uartBuf[0] = checksum;
-      000025 AE*00            [24]  657 	mov	r6,_calcChecksum_checksum_65536_65
-      000027 8E*00            [24]  658 	mov	_uartBuf,r6
-                                    659 ;	lib\isp_uart\isp_uart.c:92: uartBuf[1] = checksum >> 8;
-      000029 AF*01            [24]  660 	mov	r7,(_calcChecksum_checksum_65536_65 + 1)
-      00002B 8F*01            [24]  661 	mov	(_uartBuf + 0x0001),r7
-                                    662 ;	lib\isp_uart\isp_uart.c:93: if (uartBuf[4]++ == 0x00)
-      00002D E5*04            [12]  663 	mov	a,(_uartBuf + 0x0004)
-      00002F FF               [12]  664 	mov	r7,a
-      000030 04               [12]  665 	inc	a
-      000031 F5*04            [12]  666 	mov	(_uartBuf + 0x0004),a
-      000033 EF               [12]  667 	mov	a,r7
-      000034 70 06            [24]  668 	jnz	00107$
-                                    669 ;	lib\isp_uart\isp_uart.c:94: uartBuf[5]++;
-      000036 E5*05            [12]  670 	mov	a,(_uartBuf + 0x0005)
-      000038 FF               [12]  671 	mov	r7,a
-      000039 04               [12]  672 	inc	a
-      00003A F5*05            [12]  673 	mov	(_uartBuf + 0x0005),a
-      00003C                        674 00107$:
-                                    675 ;	lib\isp_uart\isp_uart.c:95: }
-      00003C 22               [24]  676 	ret
-                                    677 ;------------------------------------------------------------
-                                    678 ;Allocation info for local variables in function 'sendPack'
-                                    679 ;------------------------------------------------------------
-                                    680 ;i                         Allocated to registers r7 
-                                    681 ;------------------------------------------------------------
-                                    682 ;	lib\isp_uart\isp_uart.c:97: void sendPack(void)
-                                    683 ;	-----------------------------------------
-                                    684 ;	 function sendPack
-                                    685 ;	-----------------------------------------
-      00003D                        686 _sendPack:
-                                    687 ;	lib\isp_uart\isp_uart.c:99: for (uint8_t i = 0; i < PACK_SIZE; i++){
-      00003D 7F 00            [12]  688 	mov	r7,#0x00
-      00003F                        689 00106$:
-      00003F BF 40 00         [24]  690 	cjne	r7,#0x40,00127$
-      000042                        691 00127$:
-      000042 50 0E            [24]  692 	jnc	00108$
-                                    693 ;	lib\isp_uart\isp_uart.c:100: UART_SBUF = uartBuf[i];
-      000044 EF               [12]  694 	mov	a,r7
-      000045 24r00            [12]  695 	add	a,#_uartBuf
-      000047 F9               [12]  696 	mov	r1,a
-      000048 87 9A            [24]  697 	mov	_SBUF_1,@r1
-                                    698 ;	lib\isp_uart\isp_uart.c:101: while (!UART_INTERRUPT_TX_FLAG);
-      00004A                        699 00101$:
-                                    700 ;	lib\isp_uart\isp_uart.c:102: UART_INTERRUPT_TX_FLAG = 0;
-                                    701 ;	assignBit
-      00004A 10 F9 02         [24]  702 	jbc	_TI_1,00129$
-      00004D 80 FB            [24]  703 	sjmp	00101$
-      00004F                        704 00129$:
-                                    705 ;	lib\isp_uart\isp_uart.c:99: for (uint8_t i = 0; i < PACK_SIZE; i++){
-      00004F 0F               [12]  706 	inc	r7
-      000050 80 ED            [24]  707 	sjmp	00106$
-      000052                        708 00108$:
-                                    709 ;	lib\isp_uart\isp_uart.c:104: }
-      000052 22               [24]  710 	ret
-                                    711 ;------------------------------------------------------------
-                                    712 ;Allocation info for local variables in function 'ispRead4Bytes'
-                                    713 ;------------------------------------------------------------
-                                    714 ;readType                  Allocated to registers r7 
-                                    715 ;i                         Allocated to registers r5 
-                                    716 ;------------------------------------------------------------
-                                    717 ;	lib\isp_uart\isp_uart.c:106: void ispRead4Bytes(read_t readType)
-                                    718 ;	-----------------------------------------
-                                    719 ;	 function ispRead4Bytes
-                                    720 ;	-----------------------------------------
-      000053                        721 _ispRead4Bytes:
-      000053 AF 82            [24]  722 	mov	r7,dpl
-                                    723 ;	lib\isp_uart\isp_uart.c:108: IAPCN = readType;
-      000055 8F AF            [24]  724 	mov	_IAPCN,r7
-                                    725 ;	lib\isp_uart\isp_uart.c:109: IAPAH = 0x00;
-      000057 75 A7 00         [24]  726 	mov	_IAPAH,#0x00
-                                    727 ;	lib\isp_uart\isp_uart.c:111: for (uint8_t i = 0; i < 4; i++){
-      00005A E4               [12]  728 	clr	a
-      00005B BF C0 01         [24]  729 	cjne	r7,#0xc0,00140$
-      00005E 04               [12]  730 	inc	a
-      00005F                        731 00140$:
-      00005F FE               [12]  732 	mov	r6,a
-      000060 E4               [12]  733 	clr	a
-      000061 BF 0C 01         [24]  734 	cjne	r7,#0x0c,00142$
-      000064 04               [12]  735 	inc	a
-      000065                        736 00142$:
-      000065 FF               [12]  737 	mov	r7,a
-      000066 7D 00            [12]  738 	mov	r5,#0x00
-      000068                        739 00111$:
-      000068 BD 04 00         [24]  740 	cjne	r5,#0x04,00144$
-      00006B                        741 00144$:
-      00006B 50 28            [24]  742 	jnc	00113$
-                                    743 ;	lib\isp_uart\isp_uart.c:112: IAPAL = i;
-      00006D 8D A6            [24]  744 	mov	_IAPAL,r5
-                                    745 ;	lib\isp_uart\isp_uart.c:113: if (readType == READ_CONFIG_TYPE && i == 3)
-      00006F EE               [12]  746 	mov	a,r6
-      000070 60 06            [24]  747 	jz	00102$
-      000072 BD 03 03         [24]  748 	cjne	r5,#0x03,00102$
-                                    749 ;	lib\isp_uart\isp_uart.c:114: IAPAL = 4;
-      000075 75 A6 04         [24]  750 	mov	_IAPAL,#0x04
-      000078                        751 00102$:
-                                    752 ;	lib\isp_uart\isp_uart.c:115: trig_IAPGO;
-      000078 75 C7 AA         [24]  753 	mov	_TA,#0xaa
-      00007B 75 C7 55         [24]  754 	mov	_TA,#0x55
-      00007E 43 A4 01         [24]  755 	orl	_IAPTRG,#0x01
-                                    756 ;	lib\isp_uart\isp_uart.c:116: temp4bytes.raw[i] = IAPFD;
-      000081 ED               [12]  757 	mov	a,r5
-      000082 24r48            [12]  758 	add	a,#_temp4bytes
-      000084 F8               [12]  759 	mov	r0,a
-      000085 A6 AE            [24]  760 	mov	@r0,_IAPFD
-                                    761 ;	lib\isp_uart\isp_uart.c:118: if (readType == READ_ID_TYPE && i == 1){
-      000087 EF               [12]  762 	mov	a,r7
-      000088 60 08            [24]  763 	jz	00112$
-      00008A BD 01 05         [24]  764 	cjne	r5,#0x01,00112$
-                                    765 ;	lib\isp_uart\isp_uart.c:119: if (temp4bytes.DID_high != 0x67)
-      00008D 74 67            [12]  766 	mov	a,#0x67
-      00008F B5*49 03         [24]  767 	cjne	a,(_temp4bytes + 0x0001),00113$
-                                    768 ;	lib\isp_uart\isp_uart.c:120: break; 
-      000092                        769 00112$:
-                                    770 ;	lib\isp_uart\isp_uart.c:111: for (uint8_t i = 0; i < 4; i++){
-      000092 0D               [12]  771 	inc	r5
-      000093 80 D3            [24]  772 	sjmp	00111$
-      000095                        773 00113$:
-                                    774 ;	lib\isp_uart\isp_uart.c:124: }
-      000095 22               [24]  775 	ret
+                                    602 ;--------------------------------------------------------
+                                    603 ; code
+                                    604 ;--------------------------------------------------------
+                                    605 	.area CSEG    (CODE)
+                                    606 ;------------------------------------------------------------
+                                    607 ;Allocation info for local variables in function 'calcChecksum'
+                                    608 ;------------------------------------------------------------
+                                    609 ;checksum                  Allocated with name '_calcChecksum_checksum_65536_65'
+                                    610 ;i                         Allocated to registers r5 
+                                    611 ;------------------------------------------------------------
+                                    612 ;	lib\isp_uart\isp_uart.c:86: void calcChecksum(void)
+                                    613 ;	-----------------------------------------
+                                    614 ;	 function calcChecksum
+                                    615 ;	-----------------------------------------
+      000000                        616 _calcChecksum:
+                           000007   617 	ar7 = 0x07
+                           000006   618 	ar6 = 0x06
+                           000005   619 	ar5 = 0x05
+                           000004   620 	ar4 = 0x04
+                           000003   621 	ar3 = 0x03
+                           000002   622 	ar2 = 0x02
+                           000001   623 	ar1 = 0x01
+                           000000   624 	ar0 = 0x00
+                                    625 ;	lib\isp_uart\isp_uart.c:88: uint16_t checksum = 0;
+      000000 E4               [12]  626 	clr	a
+      000001 F5*00            [12]  627 	mov	_calcChecksum_checksum_65536_65,a
+      000003 F5*01            [12]  628 	mov	(_calcChecksum_checksum_65536_65 + 1),a
+                                    629 ;	lib\isp_uart\isp_uart.c:89: for (uint8_t i = 0; i < PACK_SIZE; i++)
+      000005 7D 00            [12]  630 	mov	r5,#0x00
+      000007                        631 00105$:
+      000007 BD 40 00         [24]  632 	cjne	r5,#0x40,00122$
+      00000A                        633 00122$:
+      00000A 50 19            [24]  634 	jnc	00101$
+                                    635 ;	lib\isp_uart\isp_uart.c:90: checksum += uartBuf[i];    
+      00000C ED               [12]  636 	mov	a,r5
+      00000D 24r00            [12]  637 	add	a,#_uartBuf
+      00000F F9               [12]  638 	mov	r1,a
+      000010 87 04            [24]  639 	mov	ar4,@r1
+      000012 7B 00            [12]  640 	mov	r3,#0x00
+      000014 AA*00            [24]  641 	mov	r2,_calcChecksum_checksum_65536_65
+      000016 AF*01            [24]  642 	mov	r7,(_calcChecksum_checksum_65536_65 + 1)
+      000018 EC               [12]  643 	mov	a,r4
+      000019 2A               [12]  644 	add	a,r2
+      00001A FA               [12]  645 	mov	r2,a
+      00001B EB               [12]  646 	mov	a,r3
+      00001C 3F               [12]  647 	addc	a,r7
+      00001D FF               [12]  648 	mov	r7,a
+      00001E 8A*00            [24]  649 	mov	_calcChecksum_checksum_65536_65,r2
+      000020 8F*01            [24]  650 	mov	(_calcChecksum_checksum_65536_65 + 1),r7
+                                    651 ;	lib\isp_uart\isp_uart.c:89: for (uint8_t i = 0; i < PACK_SIZE; i++)
+      000022 0D               [12]  652 	inc	r5
+      000023 80 E2            [24]  653 	sjmp	00105$
+      000025                        654 00101$:
+                                    655 ;	lib\isp_uart\isp_uart.c:91: uartBuf[0] = checksum;
+      000025 AE*00            [24]  656 	mov	r6,_calcChecksum_checksum_65536_65
+      000027 8E*00            [24]  657 	mov	_uartBuf,r6
+                                    658 ;	lib\isp_uart\isp_uart.c:92: uartBuf[1] = checksum >> 8;
+      000029 AF*01            [24]  659 	mov	r7,(_calcChecksum_checksum_65536_65 + 1)
+      00002B 8F*01            [24]  660 	mov	(_uartBuf + 0x0001),r7
+                                    661 ;	lib\isp_uart\isp_uart.c:93: if (uartBuf[4]++ == 0x00)
+      00002D E5*04            [12]  662 	mov	a,(_uartBuf + 0x0004)
+      00002F FF               [12]  663 	mov	r7,a
+      000030 04               [12]  664 	inc	a
+      000031 F5*04            [12]  665 	mov	(_uartBuf + 0x0004),a
+      000033 EF               [12]  666 	mov	a,r7
+      000034 70 06            [24]  667 	jnz	00107$
+                                    668 ;	lib\isp_uart\isp_uart.c:94: uartBuf[5]++;
+      000036 E5*05            [12]  669 	mov	a,(_uartBuf + 0x0005)
+      000038 FF               [12]  670 	mov	r7,a
+      000039 04               [12]  671 	inc	a
+      00003A F5*05            [12]  672 	mov	(_uartBuf + 0x0005),a
+      00003C                        673 00107$:
+                                    674 ;	lib\isp_uart\isp_uart.c:95: }
+      00003C 22               [24]  675 	ret
+                                    676 ;------------------------------------------------------------
+                                    677 ;Allocation info for local variables in function 'sendPack'
+                                    678 ;------------------------------------------------------------
+                                    679 ;i                         Allocated to registers r7 
+                                    680 ;------------------------------------------------------------
+                                    681 ;	lib\isp_uart\isp_uart.c:97: void sendPack(void)
+                                    682 ;	-----------------------------------------
+                                    683 ;	 function sendPack
+                                    684 ;	-----------------------------------------
+      00003D                        685 _sendPack:
+                                    686 ;	lib\isp_uart\isp_uart.c:99: for (uint8_t i = 0; i < PACK_SIZE; i++){
+      00003D 7F 00            [12]  687 	mov	r7,#0x00
+      00003F                        688 00106$:
+      00003F BF 40 00         [24]  689 	cjne	r7,#0x40,00127$
+      000042                        690 00127$:
+      000042 50 0E            [24]  691 	jnc	00108$
+                                    692 ;	lib\isp_uart\isp_uart.c:100: UART_SBUF = uartBuf[i];
+      000044 EF               [12]  693 	mov	a,r7
+      000045 24r00            [12]  694 	add	a,#_uartBuf
+      000047 F9               [12]  695 	mov	r1,a
+      000048 87 9A            [24]  696 	mov	_SBUF_1,@r1
+                                    697 ;	lib\isp_uart\isp_uart.c:101: while (!UART_INTERRUPT_TX_FLAG);
+      00004A                        698 00101$:
+                                    699 ;	lib\isp_uart\isp_uart.c:102: UART_INTERRUPT_TX_FLAG = 0;
+                                    700 ;	assignBit
+      00004A 10 F9 02         [24]  701 	jbc	_TI_1,00129$
+      00004D 80 FB            [24]  702 	sjmp	00101$
+      00004F                        703 00129$:
+                                    704 ;	lib\isp_uart\isp_uart.c:99: for (uint8_t i = 0; i < PACK_SIZE; i++){
+      00004F 0F               [12]  705 	inc	r7
+      000050 80 ED            [24]  706 	sjmp	00106$
+      000052                        707 00108$:
+                                    708 ;	lib\isp_uart\isp_uart.c:104: }
+      000052 22               [24]  709 	ret
+                                    710 ;------------------------------------------------------------
+                                    711 ;Allocation info for local variables in function 'ispRead4Bytes'
+                                    712 ;------------------------------------------------------------
+                                    713 ;readType                  Allocated to registers r7 
+                                    714 ;i                         Allocated to registers r5 
+                                    715 ;------------------------------------------------------------
+                                    716 ;	lib\isp_uart\isp_uart.c:106: void ispRead4Bytes(read_t readType)
+                                    717 ;	-----------------------------------------
+                                    718 ;	 function ispRead4Bytes
+                                    719 ;	-----------------------------------------
+      000053                        720 _ispRead4Bytes:
+      000053 AF 82            [24]  721 	mov	r7,dpl
+                                    722 ;	lib\isp_uart\isp_uart.c:108: IAPCN = readType;
+      000055 8F AF            [24]  723 	mov	_IAPCN,r7
+                                    724 ;	lib\isp_uart\isp_uart.c:109: IAPAH = 0x00;
+      000057 75 A7 00         [24]  725 	mov	_IAPAH,#0x00
+                                    726 ;	lib\isp_uart\isp_uart.c:111: for (uint8_t i = 0; i < 4; i++){
+      00005A E4               [12]  727 	clr	a
+      00005B BF C0 01         [24]  728 	cjne	r7,#0xc0,00140$
+      00005E 04               [12]  729 	inc	a
+      00005F                        730 00140$:
+      00005F FE               [12]  731 	mov	r6,a
+      000060 E4               [12]  732 	clr	a
+      000061 BF 0C 01         [24]  733 	cjne	r7,#0x0c,00142$
+      000064 04               [12]  734 	inc	a
+      000065                        735 00142$:
+      000065 FF               [12]  736 	mov	r7,a
+      000066 7D 00            [12]  737 	mov	r5,#0x00
+      000068                        738 00111$:
+      000068 BD 04 00         [24]  739 	cjne	r5,#0x04,00144$
+      00006B                        740 00144$:
+      00006B 50 28            [24]  741 	jnc	00109$
+                                    742 ;	lib\isp_uart\isp_uart.c:112: IAPAL = i;
+      00006D 8D A6            [24]  743 	mov	_IAPAL,r5
+                                    744 ;	lib\isp_uart\isp_uart.c:113: if (readType == READ_CONFIG_TYPE && i == 3)
+      00006F EE               [12]  745 	mov	a,r6
+      000070 60 06            [24]  746 	jz	00102$
+      000072 BD 03 03         [24]  747 	cjne	r5,#0x03,00102$
+                                    748 ;	lib\isp_uart\isp_uart.c:114: IAPAL = 4;
+      000075 75 A6 04         [24]  749 	mov	_IAPAL,#0x04
+      000078                        750 00102$:
+                                    751 ;	lib\isp_uart\isp_uart.c:115: trig_IAPGO;
+      000078 75 C7 AA         [24]  752 	mov	_TA,#0xaa
+      00007B 75 C7 55         [24]  753 	mov	_TA,#0x55
+      00007E 43 A4 01         [24]  754 	orl	_IAPTRG,#0x01
+                                    755 ;	lib\isp_uart\isp_uart.c:116: temp4bytes.raw[i] = IAPFD;
+      000081 ED               [12]  756 	mov	a,r5
+      000082 24r48            [12]  757 	add	a,#_temp4bytes
+      000084 F8               [12]  758 	mov	r0,a
+      000085 A6 AE            [24]  759 	mov	@r0,_IAPFD
+                                    760 ;	lib\isp_uart\isp_uart.c:118: if (readType == READ_ID_TYPE && i == 1){
+      000087 EF               [12]  761 	mov	a,r7
+      000088 60 08            [24]  762 	jz	00112$
+      00008A BD 01 05         [24]  763 	cjne	r5,#0x01,00112$
+                                    764 ;	lib\isp_uart\isp_uart.c:119: if (temp4bytes.DID_high != 0x67)
+      00008D 74 67            [12]  765 	mov	a,#0x67
+      00008F B5*49 03         [24]  766 	cjne	a,(_temp4bytes + 0x0001),00109$
+                                    767 ;	lib\isp_uart\isp_uart.c:120: break; 
+      000092                        768 00112$:
+                                    769 ;	lib\isp_uart\isp_uart.c:111: for (uint8_t i = 0; i < 4; i++){
+      000092 0D               [12]  770 	inc	r5
+      000093 80 D3            [24]  771 	sjmp	00111$
+      000095                        772 00109$:
+                                    773 ;	lib\isp_uart\isp_uart.c:124: calcChecksum();
+                                    774 ;	lib\isp_uart\isp_uart.c:125: }
+      000095 02r00r00         [24]  775 	ljmp	_calcChecksum
                                     776 ;------------------------------------------------------------
                                     777 ;Allocation info for local variables in function 'readConfig'
                                     778 ;------------------------------------------------------------
-                                    779 ;	lib\isp_uart\isp_uart.c:126: void readConfig(void)
+                                    779 ;	lib\isp_uart\isp_uart.c:127: void readConfig(void)
                                     780 ;	-----------------------------------------
                                     781 ;	 function readConfig
                                     782 ;	-----------------------------------------
-      000096                        783 _readConfig:
-                                    784 ;	lib\isp_uart\isp_uart.c:128: ispRead4Bytes(READ_CONFIG_TYPE);
-      000096 75 82 C0         [24]  785 	mov	dpl,#0xc0
-      000099 12r00r53         [24]  786 	lcall	_ispRead4Bytes
-                                    787 ;	lib\isp_uart\isp_uart.c:129: calcChecksum();
-      00009C 12r00r00         [24]  788 	lcall	_calcChecksum
-                                    789 ;	lib\isp_uart\isp_uart.c:130: uartBuf[8]  = temp4bytes.CONF0;
-      00009F 85*48*08         [24]  790 	mov	(_uartBuf + 0x0008),_temp4bytes
-                                    791 ;	lib\isp_uart\isp_uart.c:131: uartBuf[9]  = temp4bytes.CONF1;
-      0000A2 85*49*09         [24]  792 	mov	(_uartBuf + 0x0009),(_temp4bytes + 0x0001)
-                                    793 ;	lib\isp_uart\isp_uart.c:132: uartBuf[10] = temp4bytes.CONF2;
-      0000A5 85*4A*0A         [24]  794 	mov	(_uartBuf + 0x000a),(_temp4bytes + 0x0002)
-                                    795 ;	lib\isp_uart\isp_uart.c:133: uartBuf[11] = 0xFF;
-      0000A8 75*0B FF         [24]  796 	mov	(_uartBuf + 0x000b),#0xff
-                                    797 ;	lib\isp_uart\isp_uart.c:134: uartBuf[12] = temp4bytes.CONF4;
-      0000AB 85*4B*0C         [24]  798 	mov	(_uartBuf + 0x000c),(_temp4bytes + 0x0003)
-                                    799 ;	lib\isp_uart\isp_uart.c:135: uartBuf[13] = 0xFF;
-      0000AE 75*0D FF         [24]  800 	mov	(_uartBuf + 0x000d),#0xff
-                                    801 ;	lib\isp_uart\isp_uart.c:136: uartBuf[14] = 0xFF;       
-      0000B1 75*0E FF         [24]  802 	mov	(_uartBuf + 0x000e),#0xff
-                                    803 ;	lib\isp_uart\isp_uart.c:137: uartBuf[15] = 0xFF;
-      0000B4 75*0F FF         [24]  804 	mov	(_uartBuf + 0x000f),#0xff
-                                    805 ;	lib\isp_uart\isp_uart.c:138: sendPack();
-                                    806 ;	lib\isp_uart\isp_uart.c:139: }
-      0000B7 02r00r3D         [24]  807 	ljmp	_sendPack
+      000098                        783 _readConfig:
+                                    784 ;	lib\isp_uart\isp_uart.c:129: ispRead4Bytes(READ_CONFIG_TYPE);
+      000098 75 82 C0         [24]  785 	mov	dpl,#0xc0
+      00009B 12r00r53         [24]  786 	lcall	_ispRead4Bytes
+                                    787 ;	lib\isp_uart\isp_uart.c:130: uartBuf[8]  = temp4bytes.CONF0;
+      00009E 85*48*08         [24]  788 	mov	(_uartBuf + 0x0008),_temp4bytes
+                                    789 ;	lib\isp_uart\isp_uart.c:131: uartBuf[9]  = temp4bytes.CONF1;
+      0000A1 85*49*09         [24]  790 	mov	(_uartBuf + 0x0009),(_temp4bytes + 0x0001)
+                                    791 ;	lib\isp_uart\isp_uart.c:132: uartBuf[10] = temp4bytes.CONF2;
+      0000A4 85*4A*0A         [24]  792 	mov	(_uartBuf + 0x000a),(_temp4bytes + 0x0002)
+                                    793 ;	lib\isp_uart\isp_uart.c:133: uartBuf[11] = 0xFF;
+      0000A7 75*0B FF         [24]  794 	mov	(_uartBuf + 0x000b),#0xff
+                                    795 ;	lib\isp_uart\isp_uart.c:134: uartBuf[12] = temp4bytes.CONF4;
+      0000AA 85*4B*0C         [24]  796 	mov	(_uartBuf + 0x000c),(_temp4bytes + 0x0003)
+                                    797 ;	lib\isp_uart\isp_uart.c:135: uartBuf[13] = 0xFF;
+      0000AD 75*0D FF         [24]  798 	mov	(_uartBuf + 0x000d),#0xff
+                                    799 ;	lib\isp_uart\isp_uart.c:136: uartBuf[14] = 0xFF;
+      0000B0 75*0E FF         [24]  800 	mov	(_uartBuf + 0x000e),#0xff
+                                    801 ;	lib\isp_uart\isp_uart.c:137: uartBuf[15] = 0xFF;
+      0000B3 75*0F FF         [24]  802 	mov	(_uartBuf + 0x000f),#0xff
+                                    803 ;	lib\isp_uart\isp_uart.c:138: sendPack();
+                                    804 ;	lib\isp_uart\isp_uart.c:139: }
+      0000B6 02r00r3D         [24]  805 	ljmp	_sendPack
+                                    806 ;------------------------------------------------------------
+                                    807 ;Allocation info for local variables in function 'eraseAprom'
                                     808 ;------------------------------------------------------------
-                                    809 ;Allocation info for local variables in function 'eraseAprom'
+                                    809 ;pageAddr                  Allocated to registers r6 r7 
                                     810 ;------------------------------------------------------------
-                                    811 ;pageAddr                  Allocated to registers r6 r7 
-                                    812 ;------------------------------------------------------------
-                                    813 ;	lib\isp_uart\isp_uart.c:141: void eraseAprom(void)
+                                    811 ;	lib\isp_uart\isp_uart.c:141: void eraseAprom(void)
+                                    812 ;	-----------------------------------------
+                                    813 ;	 function eraseAprom
                                     814 ;	-----------------------------------------
-                                    815 ;	 function eraseAprom
-                                    816 ;	-----------------------------------------
-      0000BA                        817 _eraseAprom:
-                                    818 ;	lib\isp_uart\isp_uart.c:143: TA = 0xAA; TA = 0x55;
-      0000BA 75 C7 AA         [24]  819 	mov	_TA,#0xaa
-      0000BD 75 C7 55         [24]  820 	mov	_TA,#0x55
-                                    821 ;	lib\isp_uart\isp_uart.c:144: IAPUEN |= 0x01;
-      0000C0 43 A5 01         [24]  822 	orl	_IAPUEN,#0x01
-                                    823 ;	lib\isp_uart\isp_uart.c:145: IAPFD = 0xFF;
-      0000C3 75 AE FF         [24]  824 	mov	_IAPFD,#0xff
-                                    825 ;	lib\isp_uart\isp_uart.c:146: IAPCN = PAGE_ERASE_AP;
-      0000C6 75 AF 22         [24]  826 	mov	_IAPCN,#0x22
-                                    827 ;	lib\isp_uart\isp_uart.c:147: for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
-      0000C9 7E 00            [12]  828 	mov	r6,#0x00
-      0000CB 7F 00            [12]  829 	mov	r7,#0x00
-      0000CD                        830 00103$:
-      0000CD 8F 05            [24]  831 	mov	ar5,r7
-      0000CF 74 BC            [12]  832 	mov	a,#0x100 - 0x44
-      0000D1 2D               [12]  833 	add	a,r5
-      0000D2 40 1E            [24]  834 	jc	00105$
-                                    835 ;	lib\isp_uart\isp_uart.c:148: IAPAL = LOBYTE(pageAddr);
-      0000D4 8E A6            [24]  836 	mov	_IAPAL,r6
-                                    837 ;	lib\isp_uart\isp_uart.c:149: IAPAH = HIBYTE(pageAddr);
-      0000D6 8F A7            [24]  838 	mov	_IAPAH,r7
-                                    839 ;	lib\isp_uart\isp_uart.c:150: trig_IAPGO;
-      0000D8 75 C7 AA         [24]  840 	mov	_TA,#0xaa
-      0000DB 75 C7 55         [24]  841 	mov	_TA,#0x55
-      0000DE 43 A4 01         [24]  842 	orl	_IAPTRG,#0x01
-                                    843 ;	lib\isp_uart\isp_uart.c:147: for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
-      0000E1 8E 04            [24]  844 	mov	ar4,r6
-      0000E3 8F 05            [24]  845 	mov	ar5,r7
-      0000E5 74 80            [12]  846 	mov	a,#0x80
-      0000E7 2C               [12]  847 	add	a,r4
-      0000E8 FC               [12]  848 	mov	r4,a
-      0000E9 E4               [12]  849 	clr	a
-      0000EA 3D               [12]  850 	addc	a,r5
-      0000EB FD               [12]  851 	mov	r5,a
-      0000EC 8C 06            [24]  852 	mov	ar6,r4
-      0000EE 8D 07            [24]  853 	mov	ar7,r5
-      0000F0 80 DB            [24]  854 	sjmp	00103$
-      0000F2                        855 00105$:
-                                    856 ;	lib\isp_uart\isp_uart.c:152: }
-      0000F2 22               [24]  857 	ret
+      0000B9                        815 _eraseAprom:
+                                    816 ;	lib\isp_uart\isp_uart.c:143: TA = 0xAA; TA = 0x55;
+      0000B9 75 C7 AA         [24]  817 	mov	_TA,#0xaa
+      0000BC 75 C7 55         [24]  818 	mov	_TA,#0x55
+                                    819 ;	lib\isp_uart\isp_uart.c:144: IAPUEN |= 0x01;
+      0000BF 43 A5 01         [24]  820 	orl	_IAPUEN,#0x01
+                                    821 ;	lib\isp_uart\isp_uart.c:145: IAPFD = 0xFF;
+      0000C2 75 AE FF         [24]  822 	mov	_IAPFD,#0xff
+                                    823 ;	lib\isp_uart\isp_uart.c:146: IAPCN = PAGE_ERASE_AP;
+      0000C5 75 AF 22         [24]  824 	mov	_IAPCN,#0x22
+                                    825 ;	lib\isp_uart\isp_uart.c:147: for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
+      0000C8 7E 00            [12]  826 	mov	r6,#0x00
+      0000CA 7F 00            [12]  827 	mov	r7,#0x00
+      0000CC                        828 00103$:
+      0000CC 8F 05            [24]  829 	mov	ar5,r7
+      0000CE 74 BC            [12]  830 	mov	a,#0x100 - 0x44
+      0000D0 2D               [12]  831 	add	a,r5
+      0000D1 40 1E            [24]  832 	jc	00105$
+                                    833 ;	lib\isp_uart\isp_uart.c:148: IAPAL = LOBYTE(pageAddr);
+      0000D3 8E A6            [24]  834 	mov	_IAPAL,r6
+                                    835 ;	lib\isp_uart\isp_uart.c:149: IAPAH = HIBYTE(pageAddr);
+      0000D5 8F A7            [24]  836 	mov	_IAPAH,r7
+                                    837 ;	lib\isp_uart\isp_uart.c:150: trig_IAPGO;
+      0000D7 75 C7 AA         [24]  838 	mov	_TA,#0xaa
+      0000DA 75 C7 55         [24]  839 	mov	_TA,#0x55
+      0000DD 43 A4 01         [24]  840 	orl	_IAPTRG,#0x01
+                                    841 ;	lib\isp_uart\isp_uart.c:147: for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
+      0000E0 8E 04            [24]  842 	mov	ar4,r6
+      0000E2 8F 05            [24]  843 	mov	ar5,r7
+      0000E4 74 80            [12]  844 	mov	a,#0x80
+      0000E6 2C               [12]  845 	add	a,r4
+      0000E7 FC               [12]  846 	mov	r4,a
+      0000E8 E4               [12]  847 	clr	a
+      0000E9 3D               [12]  848 	addc	a,r5
+      0000EA FD               [12]  849 	mov	r5,a
+      0000EB 8C 06            [24]  850 	mov	ar6,r4
+      0000ED 8D 07            [24]  851 	mov	ar7,r5
+      0000EF 80 DB            [24]  852 	sjmp	00103$
+      0000F1                        853 00105$:
+                                    854 ;	lib\isp_uart\isp_uart.c:152: }
+      0000F1 22               [24]  855 	ret
+                                    856 ;------------------------------------------------------------
+                                    857 ;Allocation info for local variables in function 'writeAprom'
                                     858 ;------------------------------------------------------------
-                                    859 ;Allocation info for local variables in function 'writeAprom'
-                                    860 ;------------------------------------------------------------
-                                    861 ;writeType                 Allocated with name '_writeAprom_writeType_65536_82'
-                                    862 ;checksum                  Allocated with name '_writeAprom_checksum_65536_83'
-                                    863 ;i                         Allocated to registers r4 
-                                    864 ;------------------------------------------------------------
-                                    865 ;	lib\isp_uart\isp_uart.c:154: void writeAprom(apromWrite_t writeType)
+                                    859 ;writeType                 Allocated with name '_writeAprom_writeType_65536_82'
+                                    860 ;checksum                  Allocated with name '_writeAprom_checksum_65536_83'
+                                    861 ;i                         Allocated to registers r4 
+                                    862 ;------------------------------------------------------------
+                                    863 ;	lib\isp_uart\isp_uart.c:154: void writeAprom(apromWrite_t writeType)
+                                    864 ;	-----------------------------------------
+                                    865 ;	 function writeAprom
                                     866 ;	-----------------------------------------
-                                    867 ;	 function writeAprom
-                                    868 ;	-----------------------------------------
-      0000F3                        869 _writeAprom:
-      0000F3 85 82*4C         [24]  870 	mov	_writeAprom_writeType_65536_82,dpl
-                                    871 ;	lib\isp_uart\isp_uart.c:156: uint16_t checksum = 0;
-      0000F6 E4               [12]  872 	clr	a
-      0000F7 F5*4D            [12]  873 	mov	_writeAprom_checksum_65536_83,a
-      0000F9 F5*4E            [12]  874 	mov	(_writeAprom_checksum_65536_83 + 1),a
-                                    875 ;	lib\isp_uart\isp_uart.c:157: for (uint8_t i = writeType; i < PACK_SIZE; i++){
-      0000FB AC*4C            [24]  876 	mov	r4,_writeAprom_writeType_65536_82
-      0000FD                        877 00113$:
-      0000FD BC 40 00         [24]  878 	cjne	r4,#0x40,00141$
-      000100                        879 00141$:
-      000100 40 03            [24]  880 	jc	00142$
-      000102 02r01r6F         [24]  881 	ljmp	00111$
-      000105                        882 00142$:
-                                    883 ;	lib\isp_uart\isp_uart.c:159: IAPCN = BYTE_PROGRAM_AP;
-      000105 75 AF 21         [24]  884 	mov	_IAPCN,#0x21
-                                    885 ;	lib\isp_uart\isp_uart.c:160: IAPAL = flashAddress;
-      000108 85*44 A6         [24]  886 	mov	_IAPAL,_flashAddress
-                                    887 ;	lib\isp_uart\isp_uart.c:161: IAPAH = flashAddress >> 8;
-      00010B 85*45 A7         [24]  888 	mov	_IAPAH,(_flashAddress + 1)
-                                    889 ;	lib\isp_uart\isp_uart.c:162: IAPFD = uartBuf[i];
-      00010E EC               [12]  890 	mov	a,r4
-      00010F 24r00            [12]  891 	add	a,#_uartBuf
-      000111 F9               [12]  892 	mov	r1,a
-      000112 87 AE            [24]  893 	mov	_IAPFD,@r1
-                                    894 ;	lib\isp_uart\isp_uart.c:163: trig_IAPGO;
-      000114 75 C7 AA         [24]  895 	mov	_TA,#0xaa
-      000117 75 C7 55         [24]  896 	mov	_TA,#0x55
-      00011A 43 A4 01         [24]  897 	orl	_IAPTRG,#0x01
-                                    898 ;	lib\isp_uart\isp_uart.c:165: IAPCN = BYTE_READ_AP;
-      00011D 75 AF 00         [24]  899 	mov	_IAPCN,#0x00
-                                    900 ;	lib\isp_uart\isp_uart.c:166: trig_IAPGO;
-      000120 75 C7 AA         [24]  901 	mov	_TA,#0xaa
-      000123 75 C7 55         [24]  902 	mov	_TA,#0x55
-      000126 43 A4 01         [24]  903 	orl	_IAPTRG,#0x01
-                                    904 ;	lib\isp_uart\isp_uart.c:168: if ((IAPFD != uartBuf[i]) || (CHPCON == 0x43))
-      000129 EC               [12]  905 	mov	a,r4
-      00012A 24r00            [12]  906 	add	a,#_uartBuf
-      00012C F9               [12]  907 	mov	r1,a
-      00012D E7               [12]  908 	mov	a,@r1
-      00012E B5 AE 05         [24]  909 	cjne	a,_IAPFD,00102$
-      000131 74 43            [12]  910 	mov	a,#0x43
-      000133 B5 9F 02         [24]  911 	cjne	a,_CHPCON,00105$
-                                    912 ;	lib\isp_uart\isp_uart.c:169: while (1);
-      000136                        913 00102$:
-      000136 80 FE            [24]  914 	sjmp	00102$
-      000138                        915 00105$:
-                                    916 ;	lib\isp_uart\isp_uart.c:170: checksum += uartBuf[i];
-      000138 EC               [12]  917 	mov	a,r4
-      000139 24r00            [12]  918 	add	a,#_uartBuf
-      00013B F9               [12]  919 	mov	r1,a
-      00013C 87 03            [24]  920 	mov	ar3,@r1
-      00013E 7A 00            [12]  921 	mov	r2,#0x00
-      000140 AF*4D            [24]  922 	mov	r7,_writeAprom_checksum_65536_83
-      000142 AE*4E            [24]  923 	mov	r6,(_writeAprom_checksum_65536_83 + 1)
-      000144 EB               [12]  924 	mov	a,r3
-      000145 2F               [12]  925 	add	a,r7
-      000146 FF               [12]  926 	mov	r7,a
-      000147 EA               [12]  927 	mov	a,r2
-      000148 3E               [12]  928 	addc	a,r6
-      000149 FE               [12]  929 	mov	r6,a
-      00014A 8F*4D            [24]  930 	mov	_writeAprom_checksum_65536_83,r7
-      00014C 8E*4E            [24]  931 	mov	(_writeAprom_checksum_65536_83 + 1),r6
-                                    932 ;	lib\isp_uart\isp_uart.c:171: if (++flashAddress == programSize){
-      00014E 05*44            [12]  933 	inc	_flashAddress
-      000150 E4               [12]  934 	clr	a
-      000151 B5*44 02         [24]  935 	cjne	a,_flashAddress,00147$
-      000154 05*45            [12]  936 	inc	(_flashAddress + 1)
-      000156                        937 00147$:
-      000156 E5*46            [12]  938 	mov	a,_programSize
-      000158 B5*44 10         [24]  939 	cjne	a,_flashAddress,00114$
-      00015B E5*47            [12]  940 	mov	a,(_programSize + 1)
-      00015D B5*45 0B         [24]  941 	cjne	a,(_flashAddress + 1),00114$
-                                    942 ;	lib\isp_uart\isp_uart.c:172: if (writeType == NEXT)
-      000160 74 08            [12]  943 	mov	a,#0x08
-      000162 B5*4C 02         [24]  944 	cjne	a,_writeAprom_writeType_65536_82,00108$
-                                    945 ;	lib\isp_uart\isp_uart.c:173: timerIspOver = TRUE;
-                                    946 ;	assignBit
-      000165 D2*01            [12]  947 	setb	_timerIspOver
-      000167                        948 00108$:
-                                    949 ;	lib\isp_uart\isp_uart.c:174: isApromUpdate = FALSE;
-                                    950 ;	assignBit
-      000167 C2*02            [12]  951 	clr	_isApromUpdate
-                                    952 ;	lib\isp_uart\isp_uart.c:175: break;
-      000169 80 04            [24]  953 	sjmp	00111$
-      00016B                        954 00114$:
-                                    955 ;	lib\isp_uart\isp_uart.c:157: for (uint8_t i = writeType; i < PACK_SIZE; i++){
-      00016B 0C               [12]  956 	inc	r4
-      00016C 02r00rFD         [24]  957 	ljmp	00113$
-      00016F                        958 00111$:
-                                    959 ;	lib\isp_uart\isp_uart.c:178: calcChecksum();
-      00016F 12r00r00         [24]  960 	lcall	_calcChecksum
-                                    961 ;	lib\isp_uart\isp_uart.c:179: uartBuf[8] = checksum;
-      000172 AD*4D            [24]  962 	mov	r5,_writeAprom_checksum_65536_83
-      000174 8D*08            [24]  963 	mov	(_uartBuf + 0x0008),r5
-                                    964 ;	lib\isp_uart\isp_uart.c:180: uartBuf[9] = checksum >> 8;
-      000176 AF*4E            [24]  965 	mov	r7,(_writeAprom_checksum_65536_83 + 1)
-      000178 8F*09            [24]  966 	mov	(_uartBuf + 0x0009),r7
-                                    967 ;	lib\isp_uart\isp_uart.c:181: sendPack();
-                                    968 ;	lib\isp_uart\isp_uart.c:182: }
-      00017A 02r00r3D         [24]  969 	ljmp	_sendPack
-                                    970 	.area CSEG    (CODE)
-                                    971 	.area CONST   (CODE)
-                                    972 	.area XINIT   (CODE)
-                                    973 	.area CABS    (ABS,CODE)
+      0000F2                        867 _writeAprom:
+      0000F2 85 82*4C         [24]  868 	mov	_writeAprom_writeType_65536_82,dpl
+                                    869 ;	lib\isp_uart\isp_uart.c:156: uint16_t checksum = 0;
+      0000F5 E4               [12]  870 	clr	a
+      0000F6 F5*4D            [12]  871 	mov	_writeAprom_checksum_65536_83,a
+      0000F8 F5*4E            [12]  872 	mov	(_writeAprom_checksum_65536_83 + 1),a
+                                    873 ;	lib\isp_uart\isp_uart.c:157: for (uint8_t i = writeType; i < PACK_SIZE; i++){
+      0000FA AC*4C            [24]  874 	mov	r4,_writeAprom_writeType_65536_82
+      0000FC                        875 00113$:
+      0000FC BC 40 00         [24]  876 	cjne	r4,#0x40,00141$
+      0000FF                        877 00141$:
+      0000FF 40 03            [24]  878 	jc	00142$
+      000101 02r01r6E         [24]  879 	ljmp	00111$
+      000104                        880 00142$:
+                                    881 ;	lib\isp_uart\isp_uart.c:159: IAPCN = BYTE_PROGRAM_AP;
+      000104 75 AF 21         [24]  882 	mov	_IAPCN,#0x21
+                                    883 ;	lib\isp_uart\isp_uart.c:160: IAPAL = flashAddress;
+      000107 85*44 A6         [24]  884 	mov	_IAPAL,_flashAddress
+                                    885 ;	lib\isp_uart\isp_uart.c:161: IAPAH = flashAddress >> 8;
+      00010A 85*45 A7         [24]  886 	mov	_IAPAH,(_flashAddress + 1)
+                                    887 ;	lib\isp_uart\isp_uart.c:162: IAPFD = uartBuf[i];
+      00010D EC               [12]  888 	mov	a,r4
+      00010E 24r00            [12]  889 	add	a,#_uartBuf
+      000110 F9               [12]  890 	mov	r1,a
+      000111 87 AE            [24]  891 	mov	_IAPFD,@r1
+                                    892 ;	lib\isp_uart\isp_uart.c:163: trig_IAPGO;
+      000113 75 C7 AA         [24]  893 	mov	_TA,#0xaa
+      000116 75 C7 55         [24]  894 	mov	_TA,#0x55
+      000119 43 A4 01         [24]  895 	orl	_IAPTRG,#0x01
+                                    896 ;	lib\isp_uart\isp_uart.c:165: IAPCN = BYTE_READ_AP;
+      00011C 75 AF 00         [24]  897 	mov	_IAPCN,#0x00
+                                    898 ;	lib\isp_uart\isp_uart.c:166: trig_IAPGO;
+      00011F 75 C7 AA         [24]  899 	mov	_TA,#0xaa
+      000122 75 C7 55         [24]  900 	mov	_TA,#0x55
+      000125 43 A4 01         [24]  901 	orl	_IAPTRG,#0x01
+                                    902 ;	lib\isp_uart\isp_uart.c:168: if ((IAPFD != uartBuf[i]) || (CHPCON == 0x43))
+      000128 EC               [12]  903 	mov	a,r4
+      000129 24r00            [12]  904 	add	a,#_uartBuf
+      00012B F9               [12]  905 	mov	r1,a
+      00012C E7               [12]  906 	mov	a,@r1
+      00012D B5 AE 05         [24]  907 	cjne	a,_IAPFD,00102$
+      000130 74 43            [12]  908 	mov	a,#0x43
+      000132 B5 9F 02         [24]  909 	cjne	a,_CHPCON,00105$
+                                    910 ;	lib\isp_uart\isp_uart.c:169: while (1);
+      000135                        911 00102$:
+      000135 80 FE            [24]  912 	sjmp	00102$
+      000137                        913 00105$:
+                                    914 ;	lib\isp_uart\isp_uart.c:170: checksum += uartBuf[i];
+      000137 EC               [12]  915 	mov	a,r4
+      000138 24r00            [12]  916 	add	a,#_uartBuf
+      00013A F9               [12]  917 	mov	r1,a
+      00013B 87 03            [24]  918 	mov	ar3,@r1
+      00013D 7A 00            [12]  919 	mov	r2,#0x00
+      00013F AF*4D            [24]  920 	mov	r7,_writeAprom_checksum_65536_83
+      000141 AE*4E            [24]  921 	mov	r6,(_writeAprom_checksum_65536_83 + 1)
+      000143 EB               [12]  922 	mov	a,r3
+      000144 2F               [12]  923 	add	a,r7
+      000145 FF               [12]  924 	mov	r7,a
+      000146 EA               [12]  925 	mov	a,r2
+      000147 3E               [12]  926 	addc	a,r6
+      000148 FE               [12]  927 	mov	r6,a
+      000149 8F*4D            [24]  928 	mov	_writeAprom_checksum_65536_83,r7
+      00014B 8E*4E            [24]  929 	mov	(_writeAprom_checksum_65536_83 + 1),r6
+                                    930 ;	lib\isp_uart\isp_uart.c:171: if (++flashAddress == programSize){
+      00014D 05*44            [12]  931 	inc	_flashAddress
+      00014F E4               [12]  932 	clr	a
+      000150 B5*44 02         [24]  933 	cjne	a,_flashAddress,00147$
+      000153 05*45            [12]  934 	inc	(_flashAddress + 1)
+      000155                        935 00147$:
+      000155 E5*46            [12]  936 	mov	a,_programSize
+      000157 B5*44 10         [24]  937 	cjne	a,_flashAddress,00114$
+      00015A E5*47            [12]  938 	mov	a,(_programSize + 1)
+      00015C B5*45 0B         [24]  939 	cjne	a,(_flashAddress + 1),00114$
+                                    940 ;	lib\isp_uart\isp_uart.c:172: if (writeType == NEXT)
+      00015F 74 08            [12]  941 	mov	a,#0x08
+      000161 B5*4C 02         [24]  942 	cjne	a,_writeAprom_writeType_65536_82,00108$
+                                    943 ;	lib\isp_uart\isp_uart.c:173: timerIspOver = TRUE;
+                                    944 ;	assignBit
+      000164 D2*01            [12]  945 	setb	_timerIspOver
+      000166                        946 00108$:
+                                    947 ;	lib\isp_uart\isp_uart.c:174: isApromUpdate = FALSE;
+                                    948 ;	assignBit
+      000166 C2*02            [12]  949 	clr	_isApromUpdate
+                                    950 ;	lib\isp_uart\isp_uart.c:175: break;
+      000168 80 04            [24]  951 	sjmp	00111$
+      00016A                        952 00114$:
+                                    953 ;	lib\isp_uart\isp_uart.c:157: for (uint8_t i = writeType; i < PACK_SIZE; i++){
+      00016A 0C               [12]  954 	inc	r4
+      00016B 02r00rFC         [24]  955 	ljmp	00113$
+      00016E                        956 00111$:
+                                    957 ;	lib\isp_uart\isp_uart.c:178: calcChecksum();
+      00016E 12r00r00         [24]  958 	lcall	_calcChecksum
+                                    959 ;	lib\isp_uart\isp_uart.c:179: uartBuf[8] = checksum;
+      000171 AD*4D            [24]  960 	mov	r5,_writeAprom_checksum_65536_83
+      000173 8D*08            [24]  961 	mov	(_uartBuf + 0x0008),r5
+                                    962 ;	lib\isp_uart\isp_uart.c:180: uartBuf[9] = checksum >> 8;
+      000175 AF*4E            [24]  963 	mov	r7,(_writeAprom_checksum_65536_83 + 1)
+      000177 8F*09            [24]  964 	mov	(_uartBuf + 0x0009),r7
+                                    965 ;	lib\isp_uart\isp_uart.c:181: sendPack();
+                                    966 ;	lib\isp_uart\isp_uart.c:182: }
+      000179 02r00r3D         [24]  967 	ljmp	_sendPack
+                                    968 	.area CSEG    (CODE)
+                                    969 	.area CONST   (CODE)
+                                    970 	.area XINIT   (CODE)
+                                    971 	.area CABS    (ABS,CODE)

@@ -121,19 +121,19 @@ void ispRead4Bytes(read_t readType)
     }
 #endif
   }
+  calcChecksum();
 }
 
 void readConfig(void)
 {
   ispRead4Bytes(READ_CONFIG_TYPE);
-  calcChecksum();
   uartBuf[8]  = temp4bytes.CONF0;
   uartBuf[9]  = temp4bytes.CONF1;
   uartBuf[10] = temp4bytes.CONF2;
   uartBuf[11] = 0xFF;
   uartBuf[12] = temp4bytes.CONF4;
   uartBuf[13] = 0xFF;
-  uartBuf[14] = 0xFF;       
+  uartBuf[14] = 0xFF;
   uartBuf[15] = 0xFF;
   sendPack();
 }

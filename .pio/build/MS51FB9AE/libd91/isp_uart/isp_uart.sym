@@ -452,13 +452,13 @@ Symbol Table
     _WKCON                                                      =  00008F G
  17 _calcChecksum                                                  000000 GR
   6 _calcChecksum_checksum_65536_65                                000000 R
- 17 _eraseAprom                                                    0000A9 GR
+ 17 _eraseAprom                                                    0000A8 GR
   5 _flashAddress                                                  000044 GR
   5 _indexRx                                                       000040 GR
   9 _isApromUpdate                                                 000002 GR
  17 _ispRead4Bytes                                                 000053 GR
   5 _programSize                                                   000046 GR
- 17 _readConfig                                                    000085 GR
+ 17 _readConfig                                                    000087 GR
  17 _sendPack                                                      00003D GR
   5 _temp4bytes                                                    000048 GR
   5 _timerIsp                                                      000042 GR
@@ -466,7 +466,7 @@ Symbol Table
   5 _timerUart                                                     000041 GR
   9 _timerUartOver                                                 000000 GR
   5 _uartBuf                                                       000000 GR
- 17 _writeAprom                                                    0000E2 GR
+ 17 _writeAprom                                                    0000E1 GR
   5 _writeAprom_checksum_65536_82                                  00004D R
   5 _writeAprom_writeType_65536_81                                 00004C R
     a                                                           =  0000E0 L
@@ -702,7 +702,7 @@ Area Table
   14 GSINIT5                                    size      0   flags   20
   15 GSINIT                                     size      A   flags   20
   16 GSFINAL                                    size      0   flags   20
-  17 CSEG                                       size    16C   flags   20
+  17 CSEG                                       size    16B   flags   20
   18 CONST                                      size      0   flags   20
   19 XINIT                                      size      0   flags   20
   1A CABS                                       size      0   flags   28

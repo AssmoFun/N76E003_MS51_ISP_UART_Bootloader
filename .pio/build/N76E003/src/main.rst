@@ -802,161 +802,163 @@
                                     802 ;	assignBit
       0001AD D2 AF            [12]  803 	setb	_EA
                                     804 ;	src\main.c:167: while(1){
-      0001AF                        805 00120$:
+      0001AF                        805 00122$:
                                     806 ;	src\main.c:168: if (!EA){
-      0001AF 30 AF 03         [24]  807 	jnb	_EA,00193$
-      0001B2 02 02 5A         [24]  808 	ljmp	00114$
-      0001B5                        809 00193$:
+      0001AF 30 AF 03         [24]  807 	jnb	_EA,00200$
+      0001B2 02 02 5C         [24]  808 	ljmp	00116$
+      0001B5                        809 00200$:
                                     810 ;	src\main.c:169: if (isApromUpdate) writeAprom(NEXT);
       0001B5 30 02 06         [24]  811 	jnb	_isApromUpdate,00102$
       0001B8 75 82 08         [24]  812 	mov	dpl,#0x08
-      0001BB 12 03 66         [24]  813 	lcall	_writeAprom
+      0001BB 12 03 67         [24]  813 	lcall	_writeAprom
       0001BE                        814 00102$:
                                     815 ;	src\main.c:170: switch (uartBuf[0]){
       0001BE AF 21            [24]  816 	mov	r7,_uartBuf
-      0001C0 BF A0 02         [24]  817 	cjne	r7,#0xa0,00195$
-      0001C3 80 66            [24]  818 	sjmp	00109$
-      0001C5                        819 00195$:
-      0001C5 BF A2 02         [24]  820 	cjne	r7,#0xa2,00196$
-      0001C8 80 51            [24]  821 	sjmp	00107$
-      0001CA                        822 00196$:
-      0001CA BF A3 02         [24]  823 	cjne	r7,#0xa3,00197$
-      0001CD 80 51            [24]  824 	sjmp	00108$
-      0001CF                        825 00197$:
-      0001CF BF A4 02         [24]  826 	cjne	r7,#0xa4,00198$
+      0001C0 BF A0 02         [24]  817 	cjne	r7,#0xa0,00202$
+      0001C3 80 68            [24]  818 	sjmp	00111$
+      0001C5                        819 00202$:
+      0001C5 BF A2 02         [24]  820 	cjne	r7,#0xa2,00203$
+      0001C8 80 53            [24]  821 	sjmp	00109$
+      0001CA                        822 00203$:
+      0001CA BF A3 02         [24]  823 	cjne	r7,#0xa3,00204$
+      0001CD 80 53            [24]  824 	sjmp	00110$
+      0001CF                        825 00204$:
+      0001CF BF A4 02         [24]  826 	cjne	r7,#0xa4,00205$
       0001D2 80 15            [24]  827 	sjmp	00104$
-      0001D4                        828 00198$:
-      0001D4 BF A6 02         [24]  829 	cjne	r7,#0xa6,00199$
-      0001D7 80 37            [24]  830 	sjmp	00106$
-      0001D9                        831 00199$:
-      0001D9 BF AB 03         [24]  832 	cjne	r7,#0xab,00200$
-      0001DC 02 02 66         [24]  833 	ljmp	00122$
-      0001DF                        834 00200$:
-      0001DF BF AE 02         [24]  835 	cjne	r7,#0xae,00201$
+      0001D4                        828 00205$:
+      0001D4 BF A6 02         [24]  829 	cjne	r7,#0xa6,00206$
+      0001D7 80 39            [24]  830 	sjmp	00108$
+      0001D9                        831 00206$:
+      0001D9 BF AB 03         [24]  832 	cjne	r7,#0xab,00207$
+      0001DC 02 02 68         [24]  833 	ljmp	00124$
+      0001DF                        834 00207$:
+      0001DF BF AE 02         [24]  835 	cjne	r7,#0xae,00208$
       0001E2 80 05            [24]  836 	sjmp	00104$
-      0001E4                        837 00201$:
+      0001E4                        837 00208$:
                                     838 ;	src\main.c:172: case CMD_SYNC_PACKNO:
-      0001E4 BF B1 6B         [24]  839 	cjne	r7,#0xb1,00112$
+      0001E4 BF B1 6D         [24]  839 	cjne	r7,#0xb1,00114$
       0001E7 80 0D            [24]  840 	sjmp	00105$
       0001E9                        841 00104$:
                                     842 ;	src\main.c:173: calcChecksum();
-      0001E9 12 02 73         [24]  843 	lcall	_calcChecksum
+      0001E9 12 02 75         [24]  843 	lcall	_calcChecksum
                                     844 ;	src\main.c:174: sendPack();
-      0001EC 12 02 B0         [24]  845 	lcall	_sendPack
+      0001EC 12 02 B2         [24]  845 	lcall	_sendPack
                                     846 ;	src\main.c:176: timerIsp = 0;
       0001EF E4               [12]  847 	clr	a
       0001F0 F5 63            [12]  848 	mov	_timerIsp,a
       0001F2 F5 64            [12]  849 	mov	(_timerIsp + 1),a
                                     850 ;	src\main.c:177: break;
                                     851 ;	src\main.c:180: case CMD_GET_DEVICEID:
-      0001F4 80 5C            [24]  852 	sjmp	00112$
+      0001F4 80 5E            [24]  852 	sjmp	00114$
       0001F6                        853 00105$:
                                     854 ;	src\main.c:181: ispRead4Bytes(READ_ID_TYPE);
       0001F6 75 82 0C         [24]  855 	mov	dpl,#0x0c
-      0001F9 12 02 C6         [24]  856 	lcall	_ispRead4Bytes
-                                    857 ;	src\main.c:182: calcChecksum();
-      0001FC 12 02 73         [24]  858 	lcall	_calcChecksum
-                                    859 ;	src\main.c:183: uartBuf[8]  = temp4bytes.DID_low;
-      0001FF 85 69 29         [24]  860 	mov	(_uartBuf + 0x0008),_temp4bytes
-                                    861 ;	src\main.c:184: uartBuf[9]  = temp4bytes.DID_high;
-      000202 85 6A 2A         [24]  862 	mov	(_uartBuf + 0x0009),(_temp4bytes + 0x0001)
-                                    863 ;	src\main.c:185: uartBuf[10] = temp4bytes.PID_low;
-      000205 85 6B 2B         [24]  864 	mov	(_uartBuf + 0x000a),(_temp4bytes + 0x0002)
-                                    865 ;	src\main.c:186: uartBuf[11] = temp4bytes.PID_high;
-      000208 85 6C 2C         [24]  866 	mov	(_uartBuf + 0x000b),(_temp4bytes + 0x0003)
-                                    867 ;	src\main.c:187: sendPack();  
-      00020B 12 02 B0         [24]  868 	lcall	_sendPack
-                                    869 ;	src\main.c:188: break;
-                                    870 ;	src\main.c:190: case CMD_GET_FWVER:
-      00020E 80 42            [24]  871 	sjmp	00112$
-      000210                        872 00106$:
-                                    873 ;	src\main.c:191: calcChecksum();
-      000210 12 02 73         [24]  874 	lcall	_calcChecksum
-                                    875 ;	src\main.c:192: uartBuf[8] = FW_VERSION;
-      000213 75 29 29         [24]  876 	mov	(_uartBuf + 0x0008),#0x29
-                                    877 ;	src\main.c:193: sendPack();  
-      000216 12 02 B0         [24]  878 	lcall	_sendPack
-                                    879 ;	src\main.c:194: break;
-                                    880 ;	src\main.c:196: case CMD_READ_CONFIG:
-      000219 80 37            [24]  881 	sjmp	00112$
-      00021B                        882 00107$:
-                                    883 ;	src\main.c:197: readConfig();
-      00021B 12 03 09         [24]  884 	lcall	_readConfig
-                                    885 ;	src\main.c:198: break;
-                                    886 ;	src\main.c:200: case CMD_ERASE_ALL:
-      00021E 80 32            [24]  887 	sjmp	00112$
-      000220                        888 00108$:
-                                    889 ;	src\main.c:201: eraseAprom();
-      000220 12 03 2D         [24]  890 	lcall	_eraseAprom
-                                    891 ;	src\main.c:202: calcChecksum();
-      000223 12 02 73         [24]  892 	lcall	_calcChecksum
-                                    893 ;	src\main.c:203: sendPack();
-      000226 12 02 B0         [24]  894 	lcall	_sendPack
-                                    895 ;	src\main.c:204: break;
-                                    896 ;	src\main.c:206: case CMD_UPDATE_APROM:
-      000229 80 27            [24]  897 	sjmp	00112$
-      00022B                        898 00109$:
-                                    899 ;	src\main.c:207: eraseAprom();
-      00022B 12 03 2D         [24]  900 	lcall	_eraseAprom
-                                    901 ;	src\main.c:208: flashAddress = 0;
-      00022E E4               [12]  902 	clr	a
-      00022F F5 65            [12]  903 	mov	_flashAddress,a
-      000231 F5 66            [12]  904 	mov	(_flashAddress + 1),a
-                                    905 ;	src\main.c:209: programSize  = uartBuf[12];
-      000233 85 2D 67         [24]  906 	mov	_programSize,(_uartBuf + 0x000c)
-                                    907 ;	1-genFromRTrack replaced	mov	(_programSize + 1),#0x00
-      000236 F5 68            [12]  908 	mov	(_programSize + 1),a
-                                    909 ;	src\main.c:210: programSize |= uartBuf[13] << 8;
-      000238 AF 2E            [24]  910 	mov	r7,(_uartBuf + 0x000d)
-      00023A 7E 00            [12]  911 	mov	r6,#0x00
-      00023C AC 67            [24]  912 	mov	r4,_programSize
-      00023E AD 68            [24]  913 	mov	r5,(_programSize + 1)
-      000240 EC               [12]  914 	mov	a,r4
-      000241 42 06            [12]  915 	orl	ar6,a
-      000243 ED               [12]  916 	mov	a,r5
-      000244 42 07            [12]  917 	orl	ar7,a
-      000246 8E 67            [24]  918 	mov	_programSize,r6
-      000248 8F 68            [24]  919 	mov	(_programSize + 1),r7
-                                    920 ;	src\main.c:211: isApromUpdate = TRUE;
-                                    921 ;	assignBit
-      00024A D2 02            [12]  922 	setb	_isApromUpdate
-                                    923 ;	src\main.c:212: writeAprom(FIRST);
-      00024C 75 82 10         [24]  924 	mov	dpl,#0x10
-      00024F 12 03 66         [24]  925 	lcall	_writeAprom
-                                    926 ;	src\main.c:259: }
-      000252                        927 00112$:
-                                    928 ;	src\main.c:260: timerUart = 0;
-      000252 75 62 00         [24]  929 	mov	_timerUart,#0x00
-                                    930 ;	src\main.c:261: indexRx = 0;
-      000255 75 61 00         [24]  931 	mov	_indexRx,#0x00
-                                    932 ;	src\main.c:262: ENABLE_GLOBAL_INTERRUPT;
-                                    933 ;	assignBit
-      000258 D2 AF            [12]  934 	setb	_EA
-      00025A                        935 00114$:
-                                    936 ;	src\main.c:265: if (timerUartOver) 
-      00025A 30 00 03         [24]  937 	jnb	_timerUartOver,00116$
-                                    938 ;	src\main.c:266: indexRx = 0;
-      00025D 75 61 00         [24]  939 	mov	_indexRx,#0x00
-      000260                        940 00116$:
-                                    941 ;	src\main.c:268: if (timerIspOver)
-      000260 20 01 03         [24]  942 	jb	_timerIspOver,00204$
-      000263 02 01 AF         [24]  943 	ljmp	00120$
-      000266                        944 00204$:
-                                    945 ;	src\main.c:271: _APROM:
-      000266                        946 00122$:
-                                    947 ;	src\main.c:272: DISABLE_GLOBAL_INTERRUPT;
-                                    948 ;	assignBit
-      000266 C2 AF            [12]  949 	clr	_EA
-                                    950 ;	src\main.c:282: TA = 0xAA; TA = 0x55;
-      000268 75 C7 AA         [24]  951 	mov	_TA,#0xaa
-      00026B 75 C7 55         [24]  952 	mov	_TA,#0x55
-                                    953 ;	src\main.c:284: CHPCON = 0x80;
-      00026E 75 9F 80         [24]  954 	mov	_CHPCON,#0x80
-                                    955 ;	src\main.c:286: while(1);
-      000271                        956 00124$:
-                                    957 ;	src\main.c:287: }
-      000271 80 FE            [24]  958 	sjmp	00124$
-                                    959 	.area CSEG    (CODE)
-                                    960 	.area CONST   (CODE)
-                                    961 	.area XINIT   (CODE)
-                                    962 	.area CABS    (ABS,CODE)
+      0001F9 12 02 C8         [24]  856 	lcall	_ispRead4Bytes
+                                    857 ;	src\main.c:183: uartBuf[8]  = temp4bytes.DID_low;
+      0001FC 85 69 29         [24]  858 	mov	(_uartBuf + 0x0008),_temp4bytes
+                                    859 ;	src\main.c:184: uartBuf[9]  = temp4bytes.DID_high;
+      0001FF 85 6A 2A         [24]  860 	mov	(_uartBuf + 0x0009),(_temp4bytes + 0x0001)
+                                    861 ;	src\main.c:186: if (temp4bytes.DID_high == 0x67){
+      000202 74 67            [12]  862 	mov	a,#0x67
+      000204 B5 6A 06         [24]  863 	cjne	a,(_temp4bytes + 0x0001),00107$
+                                    864 ;	src\main.c:188: uartBuf[10] = temp4bytes.PID_low;
+      000207 85 6B 2B         [24]  865 	mov	(_uartBuf + 0x000a),(_temp4bytes + 0x0002)
+                                    866 ;	src\main.c:189: uartBuf[11] = temp4bytes.PID_high;
+      00020A 85 6C 2C         [24]  867 	mov	(_uartBuf + 0x000b),(_temp4bytes + 0x0003)
+      00020D                        868 00107$:
+                                    869 ;	src\main.c:193: sendPack();  
+      00020D 12 02 B2         [24]  870 	lcall	_sendPack
+                                    871 ;	src\main.c:194: break;
+                                    872 ;	src\main.c:196: case CMD_GET_FWVER:
+      000210 80 42            [24]  873 	sjmp	00114$
+      000212                        874 00108$:
+                                    875 ;	src\main.c:197: calcChecksum();
+      000212 12 02 75         [24]  876 	lcall	_calcChecksum
+                                    877 ;	src\main.c:198: uartBuf[8] = FW_VERSION;
+      000215 75 29 29         [24]  878 	mov	(_uartBuf + 0x0008),#0x29
+                                    879 ;	src\main.c:199: sendPack();  
+      000218 12 02 B2         [24]  880 	lcall	_sendPack
+                                    881 ;	src\main.c:200: break;
+                                    882 ;	src\main.c:202: case CMD_READ_CONFIG:
+      00021B 80 37            [24]  883 	sjmp	00114$
+      00021D                        884 00109$:
+                                    885 ;	src\main.c:203: readConfig();
+      00021D 12 03 0D         [24]  886 	lcall	_readConfig
+                                    887 ;	src\main.c:204: break;
+                                    888 ;	src\main.c:206: case CMD_ERASE_ALL:
+      000220 80 32            [24]  889 	sjmp	00114$
+      000222                        890 00110$:
+                                    891 ;	src\main.c:207: eraseAprom();
+      000222 12 03 2E         [24]  892 	lcall	_eraseAprom
+                                    893 ;	src\main.c:208: calcChecksum();
+      000225 12 02 75         [24]  894 	lcall	_calcChecksum
+                                    895 ;	src\main.c:209: sendPack();
+      000228 12 02 B2         [24]  896 	lcall	_sendPack
+                                    897 ;	src\main.c:210: break;
+                                    898 ;	src\main.c:212: case CMD_UPDATE_APROM:
+      00022B 80 27            [24]  899 	sjmp	00114$
+      00022D                        900 00111$:
+                                    901 ;	src\main.c:213: eraseAprom();
+      00022D 12 03 2E         [24]  902 	lcall	_eraseAprom
+                                    903 ;	src\main.c:214: flashAddress = 0;
+      000230 E4               [12]  904 	clr	a
+      000231 F5 65            [12]  905 	mov	_flashAddress,a
+      000233 F5 66            [12]  906 	mov	(_flashAddress + 1),a
+                                    907 ;	src\main.c:215: programSize  = uartBuf[12];
+      000235 85 2D 67         [24]  908 	mov	_programSize,(_uartBuf + 0x000c)
+                                    909 ;	1-genFromRTrack replaced	mov	(_programSize + 1),#0x00
+      000238 F5 68            [12]  910 	mov	(_programSize + 1),a
+                                    911 ;	src\main.c:216: programSize |= uartBuf[13] << 8;
+      00023A AF 2E            [24]  912 	mov	r7,(_uartBuf + 0x000d)
+      00023C 7E 00            [12]  913 	mov	r6,#0x00
+      00023E AC 67            [24]  914 	mov	r4,_programSize
+      000240 AD 68            [24]  915 	mov	r5,(_programSize + 1)
+      000242 EC               [12]  916 	mov	a,r4
+      000243 42 06            [12]  917 	orl	ar6,a
+      000245 ED               [12]  918 	mov	a,r5
+      000246 42 07            [12]  919 	orl	ar7,a
+      000248 8E 67            [24]  920 	mov	_programSize,r6
+      00024A 8F 68            [24]  921 	mov	(_programSize + 1),r7
+                                    922 ;	src\main.c:217: isApromUpdate = TRUE;
+                                    923 ;	assignBit
+      00024C D2 02            [12]  924 	setb	_isApromUpdate
+                                    925 ;	src\main.c:218: writeAprom(FIRST);
+      00024E 75 82 10         [24]  926 	mov	dpl,#0x10
+      000251 12 03 67         [24]  927 	lcall	_writeAprom
+                                    928 ;	src\main.c:265: }
+      000254                        929 00114$:
+                                    930 ;	src\main.c:266: timerUart = 0;
+      000254 75 62 00         [24]  931 	mov	_timerUart,#0x00
+                                    932 ;	src\main.c:267: indexRx = 0;
+      000257 75 61 00         [24]  933 	mov	_indexRx,#0x00
+                                    934 ;	src\main.c:268: ENABLE_GLOBAL_INTERRUPT;
+                                    935 ;	assignBit
+      00025A D2 AF            [12]  936 	setb	_EA
+      00025C                        937 00116$:
+                                    938 ;	src\main.c:271: if (timerUartOver) 
+      00025C 30 00 03         [24]  939 	jnb	_timerUartOver,00118$
+                                    940 ;	src\main.c:272: indexRx = 0;
+      00025F 75 61 00         [24]  941 	mov	_indexRx,#0x00
+      000262                        942 00118$:
+                                    943 ;	src\main.c:274: if (timerIspOver)
+      000262 20 01 03         [24]  944 	jb	_timerIspOver,00213$
+      000265 02 01 AF         [24]  945 	ljmp	00122$
+      000268                        946 00213$:
+                                    947 ;	src\main.c:277: _APROM:
+      000268                        948 00124$:
+                                    949 ;	src\main.c:278: DISABLE_GLOBAL_INTERRUPT;
+                                    950 ;	assignBit
+      000268 C2 AF            [12]  951 	clr	_EA
+                                    952 ;	src\main.c:288: TA = 0xAA; TA = 0x55;
+      00026A 75 C7 AA         [24]  953 	mov	_TA,#0xaa
+      00026D 75 C7 55         [24]  954 	mov	_TA,#0x55
+                                    955 ;	src\main.c:290: CHPCON = 0x80;
+      000270 75 9F 80         [24]  956 	mov	_CHPCON,#0x80
+                                    957 ;	src\main.c:292: while(1);
+      000273                        958 00126$:
+                                    959 ;	src\main.c:293: }
+      000273 80 FE            [24]  960 	sjmp	00126$
+                                    961 	.area CSEG    (CODE)
+                                    962 	.area CONST   (CODE)
+                                    963 	.area XINIT   (CODE)
+                                    964 	.area CABS    (ABS,CODE)

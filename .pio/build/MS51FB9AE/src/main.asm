@@ -838,59 +838,57 @@ _main:
 ;	src\main.c:181: ispRead4Bytes(READ_ID_TYPE);
 	mov	dpl,#0x0c
 	lcall	_ispRead4Bytes
-;	src\main.c:182: calcChecksum();
-	lcall	_calcChecksum
-;	src\main.c:183: uartBuf[8]  = temp4bytes.DID_low;
+;	src\main.c:182: uartBuf[8]  = temp4bytes.DID_low;
 	mov	(_uartBuf + 0x0008),_temp4bytes
-;	src\main.c:184: uartBuf[9]  = temp4bytes.DID_high;
+;	src\main.c:183: uartBuf[9]  = temp4bytes.DID_high;
 	mov	(_uartBuf + 0x0009),(_temp4bytes + 0x0001)
-;	src\main.c:185: uartBuf[10] = temp4bytes.PID_low;
+;	src\main.c:187: uartBuf[10] = temp4bytes.PID_low;
 	mov	(_uartBuf + 0x000a),(_temp4bytes + 0x0002)
-;	src\main.c:186: uartBuf[11] = temp4bytes.PID_high;
+;	src\main.c:188: uartBuf[11] = temp4bytes.PID_high;
 	mov	(_uartBuf + 0x000b),(_temp4bytes + 0x0003)
-;	src\main.c:187: sendPack();  
+;	src\main.c:192: sendPack();  
 	lcall	_sendPack
-;	src\main.c:188: break;
-;	src\main.c:190: case CMD_GET_FWVER:
+;	src\main.c:193: break;
+;	src\main.c:195: case CMD_GET_FWVER:
 	sjmp	00112$
 00106$:
-;	src\main.c:191: calcChecksum();
+;	src\main.c:196: calcChecksum();
 	lcall	_calcChecksum
-;	src\main.c:192: uartBuf[8] = FW_VERSION;
+;	src\main.c:197: uartBuf[8] = FW_VERSION;
 	mov	(_uartBuf + 0x0008),#0x29
-;	src\main.c:193: sendPack();  
+;	src\main.c:198: sendPack();  
 	lcall	_sendPack
-;	src\main.c:194: break;
-;	src\main.c:196: case CMD_READ_CONFIG:
+;	src\main.c:199: break;
+;	src\main.c:201: case CMD_READ_CONFIG:
 	sjmp	00112$
 00107$:
-;	src\main.c:197: readConfig();
+;	src\main.c:202: readConfig();
 	lcall	_readConfig
-;	src\main.c:198: break;
-;	src\main.c:200: case CMD_ERASE_ALL:
+;	src\main.c:203: break;
+;	src\main.c:205: case CMD_ERASE_ALL:
 	sjmp	00112$
 00108$:
-;	src\main.c:201: eraseAprom();
+;	src\main.c:206: eraseAprom();
 	lcall	_eraseAprom
-;	src\main.c:202: calcChecksum();
+;	src\main.c:207: calcChecksum();
 	lcall	_calcChecksum
-;	src\main.c:203: sendPack();
+;	src\main.c:208: sendPack();
 	lcall	_sendPack
-;	src\main.c:204: break;
-;	src\main.c:206: case CMD_UPDATE_APROM:
+;	src\main.c:209: break;
+;	src\main.c:211: case CMD_UPDATE_APROM:
 	sjmp	00112$
 00109$:
-;	src\main.c:207: eraseAprom();
+;	src\main.c:212: eraseAprom();
 	lcall	_eraseAprom
-;	src\main.c:208: flashAddress = 0;
+;	src\main.c:213: flashAddress = 0;
 	clr	a
 	mov	_flashAddress,a
 	mov	(_flashAddress + 1),a
-;	src\main.c:209: programSize  = uartBuf[12];
+;	src\main.c:214: programSize  = uartBuf[12];
 	mov	_programSize,(_uartBuf + 0x000c)
 ;	1-genFromRTrack replaced	mov	(_programSize + 1),#0x00
 	mov	(_programSize + 1),a
-;	src\main.c:210: programSize |= uartBuf[13] << 8;
+;	src\main.c:215: programSize |= uartBuf[13] << 8;
 	mov	r7,(_uartBuf + 0x000d)
 	mov	r6,#0x00
 	mov	r4,_programSize
@@ -901,44 +899,44 @@ _main:
 	orl	ar7,a
 	mov	_programSize,r6
 	mov	(_programSize + 1),r7
-;	src\main.c:211: isApromUpdate = TRUE;
+;	src\main.c:216: isApromUpdate = TRUE;
 ;	assignBit
 	setb	_isApromUpdate
-;	src\main.c:212: writeAprom(FIRST);
+;	src\main.c:217: writeAprom(FIRST);
 	mov	dpl,#0x10
 	lcall	_writeAprom
-;	src\main.c:259: }
+;	src\main.c:264: }
 00112$:
-;	src\main.c:260: timerUart = 0;
+;	src\main.c:265: timerUart = 0;
 	mov	_timerUart,#0x00
-;	src\main.c:261: indexRx = 0;
+;	src\main.c:266: indexRx = 0;
 	mov	_indexRx,#0x00
-;	src\main.c:262: ENABLE_GLOBAL_INTERRUPT;
+;	src\main.c:267: ENABLE_GLOBAL_INTERRUPT;
 ;	assignBit
 	setb	_EA
 00114$:
-;	src\main.c:265: if (timerUartOver) 
+;	src\main.c:270: if (timerUartOver) 
 	jnb	_timerUartOver,00116$
-;	src\main.c:266: indexRx = 0;
+;	src\main.c:271: indexRx = 0;
 	mov	_indexRx,#0x00
 00116$:
-;	src\main.c:268: if (timerIspOver)
+;	src\main.c:273: if (timerIspOver)
 	jb	_timerIspOver,00191$
 	ljmp	00120$
 00191$:
-;	src\main.c:271: _APROM:
+;	src\main.c:276: _APROM:
 00122$:
-;	src\main.c:272: DISABLE_GLOBAL_INTERRUPT;
+;	src\main.c:277: DISABLE_GLOBAL_INTERRUPT;
 ;	assignBit
 	clr	_EA
-;	src\main.c:282: TA = 0xAA; TA = 0x55;
+;	src\main.c:287: TA = 0xAA; TA = 0x55;
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
-;	src\main.c:284: CHPCON = 0x80;
+;	src\main.c:289: CHPCON = 0x80;
 	mov	_CHPCON,#0x80
-;	src\main.c:286: while(1);
+;	src\main.c:291: while(1);
 00124$:
-;	src\main.c:287: }
+;	src\main.c:292: }
 	sjmp	00124$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

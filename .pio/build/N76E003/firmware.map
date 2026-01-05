@@ -80,9 +80,9 @@ C:   000000DA  s_GSINIT5
 C:   000000E4  s_GSFINAL                       
 C:   000000E7  s_CSEG                          
 C:   00000100  l_IRAM                          
-C:   0000030D  l_CSEG                          
-C:   000003F4  s_CONST                         
-C:   000003F4  s_XINIT                         
+C:   0000030E  l_CSEG                          
+C:   000003F5  s_CONST                         
+C:   000003F5  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -495,20 +495,20 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                000000E7    0000030D =         781. bytes (REL,CON,CODE)
+CSEG                                000000E7    0000030E =         782. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
 C:   000000E7  _Timer0_ISR                        main
 C:   00000123  _UART1_ISR                         main
 C:   00000158  _main                              main
-C:   00000273  _calcChecksum                      isp_uart
-C:   000002B0  _sendPack                          isp_uart
-C:   000002C6  _ispRead4Bytes                     isp_uart
-C:   00000309  _readConfig                        isp_uart
-C:   0000032D  _eraseAprom                        isp_uart
-C:   00000366  _writeAprom                        isp_uart
-C:   000003F0  __sdcc_external_startup            _startup
+C:   00000275  _calcChecksum                      isp_uart
+C:   000002B2  _sendPack                          isp_uart
+C:   000002C8  _ispRead4Bytes                     isp_uart
+C:   0000030D  _readConfig                        isp_uart
+C:   0000032E  _eraseAprom                        isp_uart
+C:   00000367  _writeAprom                        isp_uart
+C:   000003F1  __sdcc_external_startup            _startup
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
 

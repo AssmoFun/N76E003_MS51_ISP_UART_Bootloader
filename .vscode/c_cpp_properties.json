@@ -23,13 +23,12 @@
                 ]
             },
             "defines": [
-                "F_CPU=24000000L",
+                "F_CPU=16600000L",
                 "HEAP_SIZE=128",
                 "PLATFORMIO=60118",
-                "MS51XB",
-                "MS51FB9AE",
+                "N76E003",
                 "NAKED_ARCH_MCS51",
-                "NAKED_MCS51_MS51XB",
+                "NAKED_MCS51_N76E003",
                 "__SDCC__",
                 ""
             ],

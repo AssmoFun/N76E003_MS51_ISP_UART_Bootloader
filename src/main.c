@@ -179,11 +179,16 @@ void main (void)
         // please for ISP programmer GUI, ID always use following rule to transmit
         case CMD_GET_DEVICEID:
           ispRead4Bytes(READ_ID_TYPE);
-          calcChecksum();
           uartBuf[8]  = temp4bytes.DID_low;
           uartBuf[9]  = temp4bytes.DID_high;
-          uartBuf[10] = temp4bytes.PID_low;
-          uartBuf[11] = temp4bytes.PID_high;
+#if defined N76E003
+          if (temp4bytes.DID_high == 0x67){
+#endif
+            uartBuf[10] = temp4bytes.PID_low;
+            uartBuf[11] = temp4bytes.PID_high;
+#if defined N76E003
+          }  
+#endif         
           sendPack();  
           break;
         
