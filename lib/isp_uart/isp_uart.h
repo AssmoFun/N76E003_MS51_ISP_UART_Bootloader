@@ -52,7 +52,7 @@ extern "C"{
 #else
   #error "Unknown MCU: define N76E003 or MS51FB9AE"
 #endif
-#define APROM_SIZE          (APROM_SIZE_MAX-LDROM_SIZE)*1024
+#define APROM_SIZE          ((APROM_SIZE_MAX-LDROM_SIZE)*1024)
 #define UART_TIMOUT         5       // *4.09/5.81 ms
 #define PACK_SIZE           64
 #define PAGE_SIZE           128
@@ -66,7 +66,12 @@ extern "C"{
 #define BYTE_PROGRAM_CONFIG 0xE1
 #define PAGE_ERASE_CONFIG   0xE2
 
-#define trig_IAPGO          TA=0xAA; TA=0x55; IAPTRG |= 0x01
+#define trig_IAPGO()      \
+        do {              \
+          TA = 0xAA;      \
+          TA = 0x55;      \
+          IAPTRG |= 0x01; \
+        } while (0)
 
 /* Types ---------------------------------------------------------------------*/
 typedef enum{
@@ -88,13 +93,13 @@ typedef enum{
 
 typedef enum{
   HIRC_16_MHz = 0x30,
-  HIRC_16_6_MHz = 0x30, // the same register but must be tuned
+  HIRC_16_6_MHz = 0x30, // the same as HIRC_16_MHz but must be tuned
   HIRC_24_MHz = 0x38
 } hirc_t;
 
 typedef enum{
-  FIRST = 16,   // write from 16th to 64th byte in the first received packet
-  NEXT = 8      // write from 8th to 64th byte in the next received packets
+  FIRST = 16,   // write from 16th to 64th received bytes in the first received packet
+  NEXT = 8      // write from 8th to 64th received bytes in the next received packets
 } apromWrite_t;
 
 typedef union{

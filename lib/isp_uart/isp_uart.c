@@ -112,9 +112,9 @@ void ispRead4Bytes(read_t readType)
     IAPAL = i;
     if (readType == READ_CONFIG_TYPE && i == 3)
       IAPAL = 4;
-    trig_IAPGO;
+    trig_IAPGO();
     temp4bytes.raw[i] = IAPFD;
-#if defined N76E003
+#ifdef N76E003
     if (readType == READ_ID_TYPE && i == 1){
       if (temp4bytes.DID_high != 0x67)
         break; 
@@ -147,7 +147,7 @@ void eraseAprom(void)
   for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
     IAPAL = LOBYTE(pageAddr);
     IAPAH = HIBYTE(pageAddr);
-    trig_IAPGO;
+    trig_IAPGO();
   }
 }
 
@@ -160,10 +160,10 @@ void writeAprom(apromWrite_t writeType)
     IAPAL = flashAddress;
     IAPAH = flashAddress >> 8;
     IAPFD = uartBuf[i];
-    trig_IAPGO;
+    trig_IAPGO();
     // program byte verify
     IAPCN = BYTE_READ_AP;
-    trig_IAPGO;
+    trig_IAPGO();
     // if verify fail or error flag set, stop ISP
     if ((IAPFD != uartBuf[i]) || (CHPCON == 0x43))
       while (1);

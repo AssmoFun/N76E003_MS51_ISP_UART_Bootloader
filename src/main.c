@@ -108,11 +108,11 @@ void main (void)
 #endif // #if RESTORE_16_MHZ_CLOCK
   
 #if defined N76E003
-  // set 115277.78 (115200 + 0.068%) bps for 16.6 MHz
+  // set 115277.78 (115200 bps + 0.068%) for 16.6 MHz
   RH3 = HIBYTE(65536 - 9);  // 255 = 0xFF
   RL3 = LOBYTE(65536 - 9);  // 247 = 0xF7
 #elif defined MS51FB9AE
-  // set 115384.6 (115200 + 0.16%) bps for 24 MHz
+  // set 115384.6 (115200 bps + 0.16%) for 24 MHz
   RH3 = HIBYTE(65536 - 13); // 255 = 0xFF
   RL3 = LOBYTE(65536 - 13); // 243 = 0xF3
 #endif
@@ -181,12 +181,12 @@ void main (void)
           ispRead4Bytes(READ_ID_TYPE);
           uartBuf[8]  = temp4bytes.DID_low;
           uartBuf[9]  = temp4bytes.DID_high;
-#if defined N76E003
+#ifdef N76E003
           if (temp4bytes.DID_high == 0x67){
 #endif
             uartBuf[10] = temp4bytes.PID_low;
             uartBuf[11] = temp4bytes.PID_high;
-#if defined N76E003
+#ifdef N76E003
           }  
 #endif         
           sendPack();  
@@ -277,10 +277,10 @@ _APROM:
   DISABLE_GLOBAL_INTERRUPT;
 #if RESTORE_16_MHZ_CLOCK
   // restore default clock before software reset
-#if defined N76E003
+#ifdef N76E003
   // not first call restore default 16 MHz
   changeHirc();
-#else
+#else // #ifdef MS51FB9AE
   changeHirc(HIRC_16_MHz);
 #endif
 #endif // #if RESTORE_16_MHZ_CLOCK

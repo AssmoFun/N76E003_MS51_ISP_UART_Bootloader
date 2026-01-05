@@ -467,8 +467,8 @@ Symbol Table
   9 _timerUartOver                                                 000000 GR
   5 _uartBuf                                                       000000 GR
  17 _writeAprom                                                    0000E1 GR
-  5 _writeAprom_checksum_65536_82                                  00004D R
-  5 _writeAprom_writeType_65536_81                                 00004C R
+  5 _writeAprom_checksum_65536_84                                  00004D R
+  5 _writeAprom_writeType_65536_83                                 00004C R
     a                                                           =  0000E0 L
     a.0                                                         =  0000E0 L
     a.1                                                         =  0000E1 L

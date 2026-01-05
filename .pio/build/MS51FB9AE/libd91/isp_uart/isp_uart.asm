@@ -521,9 +521,9 @@ _programSize::
 	.ds 2
 _temp4bytes::
 	.ds 4
-_writeAprom_writeType_65536_81:
+_writeAprom_writeType_65536_83:
 	.ds 1
-_writeAprom_checksum_65536_82:
+_writeAprom_checksum_65536_84:
 	.ds 2
 ;--------------------------------------------------------
 ; overlayable items in internal ram
@@ -725,25 +725,25 @@ _ispRead4Bytes:
 	mov	_IAPAH,#0x00
 ;	lib\isp_uart\isp_uart.c:111: for (uint8_t i = 0; i < 4; i++){
 	clr	a
-	cjne	r7,#0xc0,00127$
+	cjne	r7,#0xc0,00130$
 	inc	a
-00127$:
+00130$:
 	mov	r7,a
 	mov	r6,#0x00
-00106$:
-	cjne	r6,#0x04,00129$
-00129$:
-	jnc	00104$
+00109$:
+	cjne	r6,#0x04,00132$
+00132$:
+	jnc	00107$
 ;	lib\isp_uart\isp_uart.c:112: IAPAL = i;
 	mov	_IAPAL,r6
 ;	lib\isp_uart\isp_uart.c:113: if (readType == READ_CONFIG_TYPE && i == 3)
 	mov	a,r7
-	jz	00102$
-	cjne	r6,#0x03,00102$
+	jz	00104$
+	cjne	r6,#0x03,00104$
 ;	lib\isp_uart\isp_uart.c:114: IAPAL = 4;
 	mov	_IAPAL,#0x04
-00102$:
-;	lib\isp_uart\isp_uart.c:115: trig_IAPGO;
+;	lib\isp_uart\isp_uart.c:115: trig_IAPGO();
+00104$:
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
 	orl	_IAPTRG,#0x01
@@ -754,8 +754,8 @@ _ispRead4Bytes:
 	mov	@r0,_IAPFD
 ;	lib\isp_uart\isp_uart.c:111: for (uint8_t i = 0; i < 4; i++){
 	inc	r6
-	sjmp	00106$
-00104$:
+	sjmp	00109$
+00107$:
 ;	lib\isp_uart\isp_uart.c:124: calcChecksum();
 ;	lib\isp_uart\isp_uart.c:125: }
 	ljmp	_calcChecksum
@@ -811,16 +811,16 @@ _eraseAprom:
 ;	lib\isp_uart\isp_uart.c:147: for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
 	mov	r6,#0x00
 	mov	r7,#0x00
-00103$:
+00106$:
 	mov	ar5,r7
 	mov	a,#0x100 - 0x3c
 	add	a,r5
-	jc	00105$
+	jc	00108$
 ;	lib\isp_uart\isp_uart.c:148: IAPAL = LOBYTE(pageAddr);
 	mov	_IAPAL,r6
 ;	lib\isp_uart\isp_uart.c:149: IAPAH = HIBYTE(pageAddr);
 	mov	_IAPAH,r7
-;	lib\isp_uart\isp_uart.c:150: trig_IAPGO;
+;	lib\isp_uart\isp_uart.c:150: trig_IAPGO();
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
 	orl	_IAPTRG,#0x01
@@ -835,15 +835,15 @@ _eraseAprom:
 	mov	r5,a
 	mov	ar6,r4
 	mov	ar7,r5
-	sjmp	00103$
-00105$:
+	sjmp	00106$
+00108$:
 ;	lib\isp_uart\isp_uart.c:152: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'writeAprom'
 ;------------------------------------------------------------
-;writeType                 Allocated with name '_writeAprom_writeType_65536_81'
-;checksum                  Allocated with name '_writeAprom_checksum_65536_82'
+;writeType                 Allocated with name '_writeAprom_writeType_65536_83'
+;checksum                  Allocated with name '_writeAprom_checksum_65536_84'
 ;i                         Allocated to registers r4 
 ;------------------------------------------------------------
 ;	lib\isp_uart\isp_uart.c:154: void writeAprom(apromWrite_t writeType)
@@ -851,19 +851,19 @@ _eraseAprom:
 ;	 function writeAprom
 ;	-----------------------------------------
 _writeAprom:
-	mov	_writeAprom_writeType_65536_81,dpl
+	mov	_writeAprom_writeType_65536_83,dpl
 ;	lib\isp_uart\isp_uart.c:156: uint16_t checksum = 0;
 	clr	a
-	mov	_writeAprom_checksum_65536_82,a
-	mov	(_writeAprom_checksum_65536_82 + 1),a
+	mov	_writeAprom_checksum_65536_84,a
+	mov	(_writeAprom_checksum_65536_84 + 1),a
 ;	lib\isp_uart\isp_uart.c:157: for (uint8_t i = writeType; i < PACK_SIZE; i++){
-	mov	r4,_writeAprom_writeType_65536_81
-00113$:
-	cjne	r4,#0x40,00141$
-00141$:
-	jc	00142$
-	ljmp	00111$
-00142$:
+	mov	r4,_writeAprom_writeType_65536_83
+00119$:
+	cjne	r4,#0x40,00147$
+00147$:
+	jc	00148$
+	ljmp	00117$
+00148$:
 ;	lib\isp_uart\isp_uart.c:159: IAPCN = BYTE_PROGRAM_AP;
 	mov	_IAPCN,#0x21
 ;	lib\isp_uart\isp_uart.c:160: IAPAL = flashAddress;
@@ -875,13 +875,13 @@ _writeAprom:
 	add	a,#_uartBuf
 	mov	r1,a
 	mov	_IAPFD,@r1
-;	lib\isp_uart\isp_uart.c:163: trig_IAPGO;
+;	lib\isp_uart\isp_uart.c:163: trig_IAPGO();
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
 	orl	_IAPTRG,#0x01
 ;	lib\isp_uart\isp_uart.c:165: IAPCN = BYTE_READ_AP;
 	mov	_IAPCN,#0x00
-;	lib\isp_uart\isp_uart.c:166: trig_IAPGO;
+;	lib\isp_uart\isp_uart.c:166: trig_IAPGO();
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
 	orl	_IAPTRG,#0x01
@@ -890,63 +890,63 @@ _writeAprom:
 	add	a,#_uartBuf
 	mov	r1,a
 	mov	a,@r1
-	cjne	a,_IAPFD,00102$
+	cjne	a,_IAPFD,00108$
 	mov	a,#0x43
-	cjne	a,_CHPCON,00105$
+	cjne	a,_CHPCON,00111$
 ;	lib\isp_uart\isp_uart.c:169: while (1);
-00102$:
-	sjmp	00102$
-00105$:
+00108$:
+	sjmp	00108$
+00111$:
 ;	lib\isp_uart\isp_uart.c:170: checksum += uartBuf[i];
 	mov	a,r4
 	add	a,#_uartBuf
 	mov	r1,a
 	mov	ar3,@r1
 	mov	r2,#0x00
-	mov	r7,_writeAprom_checksum_65536_82
-	mov	r6,(_writeAprom_checksum_65536_82 + 1)
+	mov	r7,_writeAprom_checksum_65536_84
+	mov	r6,(_writeAprom_checksum_65536_84 + 1)
 	mov	a,r3
 	add	a,r7
 	mov	r7,a
 	mov	a,r2
 	addc	a,r6
 	mov	r6,a
-	mov	_writeAprom_checksum_65536_82,r7
-	mov	(_writeAprom_checksum_65536_82 + 1),r6
+	mov	_writeAprom_checksum_65536_84,r7
+	mov	(_writeAprom_checksum_65536_84 + 1),r6
 ;	lib\isp_uart\isp_uart.c:171: if (++flashAddress == programSize){
 	inc	_flashAddress
 	clr	a
-	cjne	a,_flashAddress,00147$
+	cjne	a,_flashAddress,00153$
 	inc	(_flashAddress + 1)
-00147$:
+00153$:
 	mov	a,_programSize
-	cjne	a,_flashAddress,00114$
+	cjne	a,_flashAddress,00120$
 	mov	a,(_programSize + 1)
-	cjne	a,(_flashAddress + 1),00114$
+	cjne	a,(_flashAddress + 1),00120$
 ;	lib\isp_uart\isp_uart.c:172: if (writeType == NEXT)
 	mov	a,#0x08
-	cjne	a,_writeAprom_writeType_65536_81,00108$
+	cjne	a,_writeAprom_writeType_65536_83,00114$
 ;	lib\isp_uart\isp_uart.c:173: timerIspOver = TRUE;
 ;	assignBit
 	setb	_timerIspOver
-00108$:
+00114$:
 ;	lib\isp_uart\isp_uart.c:174: isApromUpdate = FALSE;
 ;	assignBit
 	clr	_isApromUpdate
 ;	lib\isp_uart\isp_uart.c:175: break;
-	sjmp	00111$
-00114$:
+	sjmp	00117$
+00120$:
 ;	lib\isp_uart\isp_uart.c:157: for (uint8_t i = writeType; i < PACK_SIZE; i++){
 	inc	r4
-	ljmp	00113$
-00111$:
+	ljmp	00119$
+00117$:
 ;	lib\isp_uart\isp_uart.c:178: calcChecksum();
 	lcall	_calcChecksum
 ;	lib\isp_uart\isp_uart.c:179: uartBuf[8] = checksum;
-	mov	r5,_writeAprom_checksum_65536_82
+	mov	r5,_writeAprom_checksum_65536_84
 	mov	(_uartBuf + 0x0008),r5
 ;	lib\isp_uart\isp_uart.c:180: uartBuf[9] = checksum >> 8;
-	mov	r7,(_writeAprom_checksum_65536_82 + 1)
+	mov	r7,(_writeAprom_checksum_65536_84 + 1)
 	mov	(_uartBuf + 0x0009),r7
 ;	lib\isp_uart\isp_uart.c:181: sendPack();
 ;	lib\isp_uart\isp_uart.c:182: }
