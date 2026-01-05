@@ -609,7 +609,7 @@ _isApromUpdate::
 ;checksum                  Allocated with name '_calcChecksum_checksum_65536_65'
 ;i                         Allocated to registers r5 
 ;------------------------------------------------------------
-;	lib\isp_uart\isp_uart.c:86: void calcChecksum(void)
+;	lib\isp_uart\isp_uart.c:89: void calcChecksum(void)
 ;	-----------------------------------------
 ;	 function calcChecksum
 ;	-----------------------------------------
@@ -622,17 +622,17 @@ _calcChecksum:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	lib\isp_uart\isp_uart.c:88: uint16_t checksum = 0;
+;	lib\isp_uart\isp_uart.c:91: uint16_t checksum = 0;
 	clr	a
 	mov	_calcChecksum_checksum_65536_65,a
 	mov	(_calcChecksum_checksum_65536_65 + 1),a
-;	lib\isp_uart\isp_uart.c:89: for (uint8_t i = 0; i < PACK_SIZE; i++)
+;	lib\isp_uart\isp_uart.c:92: for (uint8_t i = 0; i < PACK_SIZE; i++)
 	mov	r5,#0x00
 00105$:
 	cjne	r5,#0x40,00122$
 00122$:
 	jnc	00101$
-;	lib\isp_uart\isp_uart.c:90: checksum += uartBuf[i];    
+;	lib\isp_uart\isp_uart.c:93: checksum += uartBuf[i];    
 	mov	a,r5
 	add	a,#_uartBuf
 	mov	r1,a
@@ -648,64 +648,64 @@ _calcChecksum:
 	mov	r7,a
 	mov	_calcChecksum_checksum_65536_65,r2
 	mov	(_calcChecksum_checksum_65536_65 + 1),r7
-;	lib\isp_uart\isp_uart.c:89: for (uint8_t i = 0; i < PACK_SIZE; i++)
+;	lib\isp_uart\isp_uart.c:92: for (uint8_t i = 0; i < PACK_SIZE; i++)
 	inc	r5
 	sjmp	00105$
 00101$:
-;	lib\isp_uart\isp_uart.c:91: uartBuf[0] = checksum;
+;	lib\isp_uart\isp_uart.c:94: uartBuf[0] = checksum;
 	mov	r6,_calcChecksum_checksum_65536_65
 	mov	_uartBuf,r6
-;	lib\isp_uart\isp_uart.c:92: uartBuf[1] = checksum >> 8;
+;	lib\isp_uart\isp_uart.c:95: uartBuf[1] = checksum >> 8;
 	mov	r7,(_calcChecksum_checksum_65536_65 + 1)
 	mov	(_uartBuf + 0x0001),r7
-;	lib\isp_uart\isp_uart.c:93: if (uartBuf[4]++ == 0x00)
+;	lib\isp_uart\isp_uart.c:96: if (uartBuf[4]++ == 0x00)
 	mov	a,(_uartBuf + 0x0004)
 	mov	r7,a
 	inc	a
 	mov	(_uartBuf + 0x0004),a
 	mov	a,r7
 	jnz	00107$
-;	lib\isp_uart\isp_uart.c:94: uartBuf[5]++;
+;	lib\isp_uart\isp_uart.c:97: uartBuf[5]++;
 	mov	a,(_uartBuf + 0x0005)
 	mov	r7,a
 	inc	a
 	mov	(_uartBuf + 0x0005),a
 00107$:
-;	lib\isp_uart\isp_uart.c:95: }
+;	lib\isp_uart\isp_uart.c:98: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'sendPack'
 ;------------------------------------------------------------
 ;i                         Allocated to registers r7 
 ;------------------------------------------------------------
-;	lib\isp_uart\isp_uart.c:97: void sendPack(void)
+;	lib\isp_uart\isp_uart.c:100: void sendPack(void)
 ;	-----------------------------------------
 ;	 function sendPack
 ;	-----------------------------------------
 _sendPack:
-;	lib\isp_uart\isp_uart.c:99: for (uint8_t i = 0; i < PACK_SIZE; i++){
+;	lib\isp_uart\isp_uart.c:102: for (uint8_t i = 0; i < PACK_SIZE; i++){
 	mov	r7,#0x00
 00106$:
 	cjne	r7,#0x40,00127$
 00127$:
 	jnc	00108$
-;	lib\isp_uart\isp_uart.c:100: UART_SBUF = uartBuf[i];
+;	lib\isp_uart\isp_uart.c:103: UART_SBUF = uartBuf[i];
 	mov	a,r7
 	add	a,#_uartBuf
 	mov	r1,a
 	mov	_SBUF_1,@r1
-;	lib\isp_uart\isp_uart.c:101: while (!UART_INTERRUPT_TX_FLAG);
+;	lib\isp_uart\isp_uart.c:104: while (!UART_INTERRUPT_TX_FLAG);
 00101$:
-;	lib\isp_uart\isp_uart.c:102: UART_INTERRUPT_TX_FLAG = 0;
+;	lib\isp_uart\isp_uart.c:105: UART_INTERRUPT_TX_FLAG = 0;
 ;	assignBit
 	jbc	_TI_1,00129$
 	sjmp	00101$
 00129$:
-;	lib\isp_uart\isp_uart.c:99: for (uint8_t i = 0; i < PACK_SIZE; i++){
+;	lib\isp_uart\isp_uart.c:102: for (uint8_t i = 0; i < PACK_SIZE; i++){
 	inc	r7
 	sjmp	00106$
 00108$:
-;	lib\isp_uart\isp_uart.c:104: }
+;	lib\isp_uart\isp_uart.c:107: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'ispRead4Bytes'
@@ -713,17 +713,17 @@ _sendPack:
 ;readType                  Allocated to registers r7 
 ;i                         Allocated to registers r6 
 ;------------------------------------------------------------
-;	lib\isp_uart\isp_uart.c:106: void ispRead4Bytes(read_t readType)
+;	lib\isp_uart\isp_uart.c:109: void ispRead4Bytes(read_t readType)
 ;	-----------------------------------------
 ;	 function ispRead4Bytes
 ;	-----------------------------------------
 _ispRead4Bytes:
 	mov	r7,dpl
-;	lib\isp_uart\isp_uart.c:108: IAPCN = readType;
+;	lib\isp_uart\isp_uart.c:111: IAPCN = readType;
 	mov	_IAPCN,r7
-;	lib\isp_uart\isp_uart.c:109: IAPAH = 0x00;
+;	lib\isp_uart\isp_uart.c:112: IAPAH = 0x00;
 	mov	_IAPAH,#0x00
-;	lib\isp_uart\isp_uart.c:111: for (uint8_t i = 0; i < 4; i++){
+;	lib\isp_uart\isp_uart.c:114: for (uint8_t i = 0; i < 4; i++){
 	clr	a
 	cjne	r7,#0xc0,00130$
 	inc	a
@@ -734,81 +734,81 @@ _ispRead4Bytes:
 	cjne	r6,#0x04,00132$
 00132$:
 	jnc	00107$
-;	lib\isp_uart\isp_uart.c:112: IAPAL = i;
+;	lib\isp_uart\isp_uart.c:115: IAPAL = i;
 	mov	_IAPAL,r6
-;	lib\isp_uart\isp_uart.c:113: if (readType == READ_CONFIG_TYPE && i == 3)
+;	lib\isp_uart\isp_uart.c:116: if (readType == READ_CONFIG_TYPE && i == 3)
 	mov	a,r7
 	jz	00104$
 	cjne	r6,#0x03,00104$
-;	lib\isp_uart\isp_uart.c:114: IAPAL = 4;
+;	lib\isp_uart\isp_uart.c:117: IAPAL = 4;
 	mov	_IAPAL,#0x04
-;	lib\isp_uart\isp_uart.c:115: trig_IAPGO();
+;	lib\isp_uart\isp_uart.c:118: trig_IAPGO();
 00104$:
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
 	orl	_IAPTRG,#0x01
-;	lib\isp_uart\isp_uart.c:116: temp4bytes.raw[i] = IAPFD;
+;	lib\isp_uart\isp_uart.c:119: temp4bytes.raw[i] = IAPFD;
 	mov	a,r6
 	add	a,#_temp4bytes
 	mov	r0,a
 	mov	@r0,_IAPFD
-;	lib\isp_uart\isp_uart.c:111: for (uint8_t i = 0; i < 4; i++){
+;	lib\isp_uart\isp_uart.c:114: for (uint8_t i = 0; i < 4; i++){
 	inc	r6
 	sjmp	00109$
 00107$:
-;	lib\isp_uart\isp_uart.c:124: calcChecksum();
-;	lib\isp_uart\isp_uart.c:125: }
+;	lib\isp_uart\isp_uart.c:127: calcChecksum();
+;	lib\isp_uart\isp_uart.c:128: }
 	ljmp	_calcChecksum
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'readConfig'
 ;------------------------------------------------------------
-;	lib\isp_uart\isp_uart.c:127: void readConfig(void)
+;	lib\isp_uart\isp_uart.c:130: void readConfig(void)
 ;	-----------------------------------------
 ;	 function readConfig
 ;	-----------------------------------------
 _readConfig:
-;	lib\isp_uart\isp_uart.c:129: ispRead4Bytes(READ_CONFIG_TYPE);
+;	lib\isp_uart\isp_uart.c:132: ispRead4Bytes(READ_CONFIG_TYPE);
 	mov	dpl,#0xc0
 	lcall	_ispRead4Bytes
-;	lib\isp_uart\isp_uart.c:130: uartBuf[8]  = temp4bytes.CONF0;
+;	lib\isp_uart\isp_uart.c:133: uartBuf[8]  = temp4bytes.CONF0;
 	mov	(_uartBuf + 0x0008),_temp4bytes
-;	lib\isp_uart\isp_uart.c:131: uartBuf[9]  = temp4bytes.CONF1;
+;	lib\isp_uart\isp_uart.c:134: uartBuf[9]  = temp4bytes.CONF1;
 	mov	(_uartBuf + 0x0009),(_temp4bytes + 0x0001)
-;	lib\isp_uart\isp_uart.c:132: uartBuf[10] = temp4bytes.CONF2;
+;	lib\isp_uart\isp_uart.c:135: uartBuf[10] = temp4bytes.CONF2;
 	mov	(_uartBuf + 0x000a),(_temp4bytes + 0x0002)
-;	lib\isp_uart\isp_uart.c:133: uartBuf[11] = 0xFF;
+;	lib\isp_uart\isp_uart.c:136: uartBuf[11] = 0xFF;
 	mov	(_uartBuf + 0x000b),#0xff
-;	lib\isp_uart\isp_uart.c:134: uartBuf[12] = temp4bytes.CONF4;
+;	lib\isp_uart\isp_uart.c:137: uartBuf[12] = temp4bytes.CONF4;
 	mov	(_uartBuf + 0x000c),(_temp4bytes + 0x0003)
-;	lib\isp_uart\isp_uart.c:135: uartBuf[13] = 0xFF;
+;	lib\isp_uart\isp_uart.c:138: uartBuf[13] = 0xFF;
 	mov	(_uartBuf + 0x000d),#0xff
-;	lib\isp_uart\isp_uart.c:136: uartBuf[14] = 0xFF;
+;	lib\isp_uart\isp_uart.c:139: uartBuf[14] = 0xFF;
 	mov	(_uartBuf + 0x000e),#0xff
-;	lib\isp_uart\isp_uart.c:137: uartBuf[15] = 0xFF;
+;	lib\isp_uart\isp_uart.c:140: uartBuf[15] = 0xFF;
 	mov	(_uartBuf + 0x000f),#0xff
-;	lib\isp_uart\isp_uart.c:138: sendPack();
-;	lib\isp_uart\isp_uart.c:139: }
+;	lib\isp_uart\isp_uart.c:141: sendPack();
+;	lib\isp_uart\isp_uart.c:142: }
 	ljmp	_sendPack
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'eraseAprom'
 ;------------------------------------------------------------
 ;pageAddr                  Allocated to registers r6 r7 
 ;------------------------------------------------------------
-;	lib\isp_uart\isp_uart.c:141: void eraseAprom(void)
+;	lib\isp_uart\isp_uart.c:144: void eraseAprom(void)
 ;	-----------------------------------------
 ;	 function eraseAprom
 ;	-----------------------------------------
 _eraseAprom:
-;	lib\isp_uart\isp_uart.c:143: TA = 0xAA; TA = 0x55;
+;	lib\isp_uart\isp_uart.c:146: TA = 0xAA; TA = 0x55;
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
-;	lib\isp_uart\isp_uart.c:144: IAPUEN |= 0x01;
+;	lib\isp_uart\isp_uart.c:147: IAPUEN |= 0x01;
 	orl	_IAPUEN,#0x01
-;	lib\isp_uart\isp_uart.c:145: IAPFD = 0xFF;
+;	lib\isp_uart\isp_uart.c:148: IAPFD = 0xFF;
 	mov	_IAPFD,#0xff
-;	lib\isp_uart\isp_uart.c:146: IAPCN = PAGE_ERASE_AP;
+;	lib\isp_uart\isp_uart.c:149: IAPCN = PAGE_ERASE_AP;
 	mov	_IAPCN,#0x22
-;	lib\isp_uart\isp_uart.c:147: for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
+;	lib\isp_uart\isp_uart.c:150: for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
 	mov	r6,#0x00
 	mov	r7,#0x00
 00106$:
@@ -816,15 +816,15 @@ _eraseAprom:
 	mov	a,#0x100 - 0x3c
 	add	a,r5
 	jc	00108$
-;	lib\isp_uart\isp_uart.c:148: IAPAL = LOBYTE(pageAddr);
+;	lib\isp_uart\isp_uart.c:151: IAPAL = LOBYTE(pageAddr);
 	mov	_IAPAL,r6
-;	lib\isp_uart\isp_uart.c:149: IAPAH = HIBYTE(pageAddr);
+;	lib\isp_uart\isp_uart.c:152: IAPAH = HIBYTE(pageAddr);
 	mov	_IAPAH,r7
-;	lib\isp_uart\isp_uart.c:150: trig_IAPGO();
+;	lib\isp_uart\isp_uart.c:153: trig_IAPGO();
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
 	orl	_IAPTRG,#0x01
-;	lib\isp_uart\isp_uart.c:147: for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
+;	lib\isp_uart\isp_uart.c:150: for (uint16_t pageAddr = 0; pageAddr < APROM_SIZE; pageAddr += PAGE_SIZE){        
 	mov	ar4,r6
 	mov	ar5,r7
 	mov	a,#0x80
@@ -837,7 +837,7 @@ _eraseAprom:
 	mov	ar7,r5
 	sjmp	00106$
 00108$:
-;	lib\isp_uart\isp_uart.c:152: }
+;	lib\isp_uart\isp_uart.c:155: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'writeAprom'
@@ -846,17 +846,17 @@ _eraseAprom:
 ;checksum                  Allocated with name '_writeAprom_checksum_65536_84'
 ;i                         Allocated to registers r4 
 ;------------------------------------------------------------
-;	lib\isp_uart\isp_uart.c:154: void writeAprom(apromWrite_t writeType)
+;	lib\isp_uart\isp_uart.c:157: void writeAprom(apromWrite_t writeType)
 ;	-----------------------------------------
 ;	 function writeAprom
 ;	-----------------------------------------
 _writeAprom:
 	mov	_writeAprom_writeType_65536_83,dpl
-;	lib\isp_uart\isp_uart.c:156: uint16_t checksum = 0;
+;	lib\isp_uart\isp_uart.c:159: uint16_t checksum = 0;
 	clr	a
 	mov	_writeAprom_checksum_65536_84,a
 	mov	(_writeAprom_checksum_65536_84 + 1),a
-;	lib\isp_uart\isp_uart.c:157: for (uint8_t i = writeType; i < PACK_SIZE; i++){
+;	lib\isp_uart\isp_uart.c:160: for (uint8_t i = writeType; i < PACK_SIZE; i++){
 	mov	r4,_writeAprom_writeType_65536_83
 00119$:
 	cjne	r4,#0x40,00147$
@@ -864,28 +864,28 @@ _writeAprom:
 	jc	00148$
 	ljmp	00117$
 00148$:
-;	lib\isp_uart\isp_uart.c:159: IAPCN = BYTE_PROGRAM_AP;
+;	lib\isp_uart\isp_uart.c:162: IAPCN = BYTE_PROGRAM_AP;
 	mov	_IAPCN,#0x21
-;	lib\isp_uart\isp_uart.c:160: IAPAL = flashAddress;
+;	lib\isp_uart\isp_uart.c:163: IAPAL = flashAddress;
 	mov	_IAPAL,_flashAddress
-;	lib\isp_uart\isp_uart.c:161: IAPAH = flashAddress >> 8;
+;	lib\isp_uart\isp_uart.c:164: IAPAH = flashAddress >> 8;
 	mov	_IAPAH,(_flashAddress + 1)
-;	lib\isp_uart\isp_uart.c:162: IAPFD = uartBuf[i];
+;	lib\isp_uart\isp_uart.c:165: IAPFD = uartBuf[i];
 	mov	a,r4
 	add	a,#_uartBuf
 	mov	r1,a
 	mov	_IAPFD,@r1
-;	lib\isp_uart\isp_uart.c:163: trig_IAPGO();
-	mov	_TA,#0xaa
-	mov	_TA,#0x55
-	orl	_IAPTRG,#0x01
-;	lib\isp_uart\isp_uart.c:165: IAPCN = BYTE_READ_AP;
-	mov	_IAPCN,#0x00
 ;	lib\isp_uart\isp_uart.c:166: trig_IAPGO();
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
 	orl	_IAPTRG,#0x01
-;	lib\isp_uart\isp_uart.c:168: if ((IAPFD != uartBuf[i]) || (CHPCON == CHPCON_ERROR))
+;	lib\isp_uart\isp_uart.c:168: IAPCN = BYTE_READ_AP;
+	mov	_IAPCN,#0x00
+;	lib\isp_uart\isp_uart.c:169: trig_IAPGO();
+	mov	_TA,#0xaa
+	mov	_TA,#0x55
+	orl	_IAPTRG,#0x01
+;	lib\isp_uart\isp_uart.c:171: if ((IAPFD != uartBuf[i]) || (CHPCON == CHPCON_ERROR))
 	mov	a,r4
 	add	a,#_uartBuf
 	mov	r1,a
@@ -893,11 +893,11 @@ _writeAprom:
 	cjne	a,_IAPFD,00108$
 	mov	a,#0x43
 	cjne	a,_CHPCON,00111$
-;	lib\isp_uart\isp_uart.c:169: while (1);
+;	lib\isp_uart\isp_uart.c:172: while (1);
 00108$:
 	sjmp	00108$
 00111$:
-;	lib\isp_uart\isp_uart.c:170: checksum += uartBuf[i];
+;	lib\isp_uart\isp_uart.c:173: checksum += uartBuf[i];
 	mov	a,r4
 	add	a,#_uartBuf
 	mov	r1,a
@@ -913,7 +913,7 @@ _writeAprom:
 	mov	r6,a
 	mov	_writeAprom_checksum_65536_84,r7
 	mov	(_writeAprom_checksum_65536_84 + 1),r6
-;	lib\isp_uart\isp_uart.c:171: if (++flashAddress == programSize){
+;	lib\isp_uart\isp_uart.c:174: if (++flashAddress == programSize){
 	inc	_flashAddress
 	clr	a
 	cjne	a,_flashAddress,00153$
@@ -923,33 +923,33 @@ _writeAprom:
 	cjne	a,_flashAddress,00120$
 	mov	a,(_programSize + 1)
 	cjne	a,(_flashAddress + 1),00120$
-;	lib\isp_uart\isp_uart.c:172: if (writeType == NEXT)
+;	lib\isp_uart\isp_uart.c:175: if (writeType == NEXT)
 	mov	a,#0x08
 	cjne	a,_writeAprom_writeType_65536_83,00114$
-;	lib\isp_uart\isp_uart.c:173: timerIspOver = TRUE;
+;	lib\isp_uart\isp_uart.c:176: timerIspOver = TRUE;
 ;	assignBit
 	setb	_timerIspOver
 00114$:
-;	lib\isp_uart\isp_uart.c:174: isApromUpdate = FALSE;
+;	lib\isp_uart\isp_uart.c:177: isApromUpdate = FALSE;
 ;	assignBit
 	clr	_isApromUpdate
-;	lib\isp_uart\isp_uart.c:175: break;
+;	lib\isp_uart\isp_uart.c:178: break;
 	sjmp	00117$
 00120$:
-;	lib\isp_uart\isp_uart.c:157: for (uint8_t i = writeType; i < PACK_SIZE; i++){
+;	lib\isp_uart\isp_uart.c:160: for (uint8_t i = writeType; i < PACK_SIZE; i++){
 	inc	r4
 	ljmp	00119$
 00117$:
-;	lib\isp_uart\isp_uart.c:178: calcChecksum();
+;	lib\isp_uart\isp_uart.c:181: calcChecksum();
 	lcall	_calcChecksum
-;	lib\isp_uart\isp_uart.c:179: uartBuf[8] = checksum;
+;	lib\isp_uart\isp_uart.c:182: uartBuf[8] = checksum;
 	mov	r5,_writeAprom_checksum_65536_84
 	mov	(_uartBuf + 0x0008),r5
-;	lib\isp_uart\isp_uart.c:180: uartBuf[9] = checksum >> 8;
+;	lib\isp_uart\isp_uart.c:183: uartBuf[9] = checksum >> 8;
 	mov	r7,(_writeAprom_checksum_65536_84 + 1)
 	mov	(_uartBuf + 0x0009),r7
-;	lib\isp_uart\isp_uart.c:181: sendPack();
-;	lib\isp_uart\isp_uart.c:182: }
+;	lib\isp_uart\isp_uart.c:184: sendPack();
+;	lib\isp_uart\isp_uart.c:185: }
 	ljmp	_sendPack
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

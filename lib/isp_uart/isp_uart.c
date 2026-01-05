@@ -21,7 +21,9 @@ void changeHirc(void)
   /* if ((PCON & SET_BIT4) == SET_BIT4){
     uint8_t hircMap0 = RCTRIM0;
     uint8_t hircMap1 = RCTRIM1;
-    uint16_t trim = (((uint16_t)hircMap0 << 1) | (hircMap1 & 1)) - 15;  // 40kHz per 1 bit, 40*15=600 kHz
+    
+    // 40kHz per 1 bit, 40*15=600 kHz. Decrease for trim value for add 600 kHz
+    uint16_t trim = (((uint16_t)hircMap0 << 1) | (hircMap1 & 1)) - 15;
     hircMap0 = trim >> 1;
     hircMap1 = trim & 1;
     
@@ -47,7 +49,8 @@ void changeHirc(void)
   uint8_t hircMap1 = IAPFD;
 
   if ((PCON & SET_BIT4) == SET_BIT4){
-    uint8_t trim = ((hircMap0 << 1) | (hircMap1 & 1)) - 13;  // 40kHz per 1 bit, 40*13=520 kHz
+    // 40kHz per 1 bit, 40*(15-CLK_TRIM_STEPS)=520-560 kHz. Decrease for trim value for add 520-560 kHz
+    uint8_t trim = ((hircMap0 << 1) | (hircMap1 & 1)) - (15-CLK_TRIM_STEPS);
     hircMap0 = trim >> 1;
     hircMap1 = trim & 1;
     // clear Power On Flag for restore RCTRIM0 & RCTRIM1 after all on next calls
