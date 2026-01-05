@@ -165,7 +165,7 @@ void writeAprom(apromWrite_t writeType)
     IAPCN = BYTE_READ_AP;
     trig_IAPGO();
     // if verify fail or error flag set, stop ISP
-    if ((IAPFD != uartBuf[i]) || (CHPCON == 0x43))
+    if ((IAPFD != uartBuf[i]) || (CHPCON == CHPCON_ERROR))
       while (1);
     checksum += uartBuf[i];
     if (++flashAddress == programSize){

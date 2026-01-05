@@ -885,7 +885,7 @@
       00010E 75 C7 AA         [24]  885 	mov	_TA,#0xaa
       000111 75 C7 55         [24]  886 	mov	_TA,#0x55
       000114 43 A4 01         [24]  887 	orl	_IAPTRG,#0x01
-                                    888 ;	lib\isp_uart\isp_uart.c:168: if ((IAPFD != uartBuf[i]) || (CHPCON == 0x43))
+                                    888 ;	lib\isp_uart\isp_uart.c:168: if ((IAPFD != uartBuf[i]) || (CHPCON == CHPCON_ERROR))
       000117 EC               [12]  889 	mov	a,r4
       000118 24r00            [12]  890 	add	a,#_uartBuf
       00011A F9               [12]  891 	mov	r1,a

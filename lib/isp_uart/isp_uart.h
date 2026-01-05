@@ -66,6 +66,8 @@ extern "C"{
 #define BYTE_PROGRAM_CONFIG 0xE1
 #define PAGE_ERASE_CONFIG   0xE2
 
+#define CHPCON_ERROR        0b01000011  // IAP fault flag + MCU will re-boot from LDROM + IAP function Enabled
+
 #define trig_IAPGO()      \
         do {              \
           TA = 0xAA;      \

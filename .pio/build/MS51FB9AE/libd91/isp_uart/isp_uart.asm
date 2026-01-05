@@ -885,7 +885,7 @@ _writeAprom:
 	mov	_TA,#0xaa
 	mov	_TA,#0x55
 	orl	_IAPTRG,#0x01
-;	lib\isp_uart\isp_uart.c:168: if ((IAPFD != uartBuf[i]) || (CHPCON == 0x43))
+;	lib\isp_uart\isp_uart.c:168: if ((IAPFD != uartBuf[i]) || (CHPCON == CHPCON_ERROR))
 	mov	a,r4
 	add	a,#_uartBuf
 	mov	r1,a

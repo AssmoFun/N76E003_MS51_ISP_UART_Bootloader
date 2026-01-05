@@ -899,7 +899,7 @@
       00011F 75 C7 AA         [24]  899 	mov	_TA,#0xaa
       000122 75 C7 55         [24]  900 	mov	_TA,#0x55
       000125 43 A4 01         [24]  901 	orl	_IAPTRG,#0x01
-                                    902 ;	lib\isp_uart\isp_uart.c:168: if ((IAPFD != uartBuf[i]) || (CHPCON == 0x43))
+                                    902 ;	lib\isp_uart\isp_uart.c:168: if ((IAPFD != uartBuf[i]) || (CHPCON == CHPCON_ERROR))
       000128 EC               [12]  903 	mov	a,r4
       000129 24r00            [12]  904 	add	a,#_uartBuf
       00012B F9               [12]  905 	mov	r1,a
